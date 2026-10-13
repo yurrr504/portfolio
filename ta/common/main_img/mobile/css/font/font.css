@@ -1,0 +1,51 @@
+/* NanumSquareNeo — 최신 브라우저용 woff2 / woff 만 사용 (eot·ttf·otf 제거로 용량 절감) */
+
+/*NanumSquareNeo-Haevy*/
+@font-face {
+    font-family: 'NanumSquareNeo';
+    src: url('NanumSquareNeoTTF-eHv.woff2') format('woff2'),
+         url('NanumSquareNeoTTF-eHv.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/*NanumSquareNeo-Ebold*/
+@font-face {
+    font-family: 'NanumSquareNeo';
+    src: url('NanumSquareNeoTTF-dEb.woff2') format('woff2'),
+         url('NanumSquareNeoTTF-dEb.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+/*NanumSquareNeo-bold*/
+@font-face {
+    font-family: 'NanumSquareNeo';
+    src: url('NanumSquareNeoTTF-cBd.woff2') format('woff2'),
+         url('NanumSquareNeoTTF-cBd.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/*NanumSquareNeo-regular*/
+@font-face {
+    font-family: 'NanumSquareNeo';
+    src: url('NanumSquareNeoTTF-bRg.woff2') format('woff2'),
+         url('NanumSquareNeoTTF-bRg.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/*NanumSquareNeo-light*/
+@font-face {
+    font-family: 'NanumSquareNeo';
+    src: url('NanumSquareNeoTTF-aLt.woff2') format('woff2'),
+         url('NanumSquareNeoTTF-aLt.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
