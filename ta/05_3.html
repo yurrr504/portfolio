@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>TA 원서접수</title>
+	<link rel="icon" href="img/favicon.png" type="image/x-icon"> 
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet"type="text/css"  href="css/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/swiper-bundle.min.js"></script>
+</head>
+<body>
+
+<div class="header">
+	<div class="m_pop_mypage">
+		<button class="btn_close"onclick="$('.m_pop_mypage').hide()"></button>
+		<div class="inner">
+			<div class="top_area">
+				<a href="#" class="home">유웨이어플라이 홈</a>
+				<button class="btn_lang">Language</button>
+			</div>
+			<div class="user_info_box">
+				<div class="ucash_area">
+					<span class="logo">유캐시</span>
+					<a href="#" class="ucash"><span class="num">20,000</span>원</a>
+				</div>
+				<ul class="user_btn login">
+					<li class="btn"><a href="#"><span class="user txt">박하늘별님구리우리<span class="s1">님</span></span></a></li>
+					<li class="btn"><a href="#"><span class="logout txt">로그아웃</span></a></li>			
+				</ul>
+			</div><!-- // user_info_box 로그인시-->
+
+			<!-- <div class="user_info_box">
+				<ul class="user_btn logout">
+					<li class="btn"><a href="#"><span class="login txt">로그인</span></a></li>
+					<li class="btn"><a href="#"><span class="join txt">회원가입</span></a></li>
+				</ul>			
+			</div>  --><!-- // user_info_box 로그아웃시-->
+
+			<div class="mypage_menu">
+				<ul>
+					<li class="m1"><a href="#"><p class="txt">내원서 보관함</p></a></li>
+					<li class="m2"><a href="#"><p class="txt">고객센터</p></a></li>
+					<li class="m3"><a href="#"><p class="txt">파워경쟁률</p></a></li>
+				</ul>
+			</div>
+		</div>
+	</div> <!-- // m_pop_mypage -->
+
+	<div class="top_menu">
+		<div class="inner clfix">
+			<a href="https://www.uwayapply.com/" target="_blank" class="home">유웨이 어플라이 홈</a>		
+			<!-- 로그인 전 -->
+			<!-- <ul class="login_menu clfix">	
+				<li><a href="#">로그인</a></li>
+				<li><a href="#">회원가입</a></li>
+				<li><a href="#">고객센터</a></li>
+				<li><a href="#">파워경쟁률</a></li>
+				<li><a href="#">English</a></li>
+			</ul> -->
+			<!-- 로그인 시 -->
+			<ul class="login_menu clfix">
+				<li class="user"><a href="#"><span class="user_name">유웨이</span>님</a></li>				
+				<li><a href="#">로그아웃</a></li>
+				<li class="ucash"><a href="#">유캐시 <span class="cash">20,000</span>원</a></li>
+				<li><a href="#">내원서보관함</a></li>
+				<li><a href="#">고객센터</a></li>
+				<li><a href="#">파워경쟁률</a></li>
+				<li><a href="#">English</a></li>
+			</ul>
+
+		</div>
+	</div> <!-- // top_menu -->
+	<div class="inner header_inner">
+		<div class="header_left">
+			<a href="#"target="_blank" class="univ_logo"><img src="img/univ_logo.png" alt="대학별 로고"><img src="" alt=""></a>
+			<h2 class="top_tit">건설대학원 전반기 신입생 모집(2차) 전반기 신입생 모집 전반기 신입생 모집</h2>
+			<a href="#" class="user_m login" onclick="$('.m_pop_mypage').show()"></a>
+		</div>
+		<div class="header_right">
+			<ul class="gnb">
+				<li class="on"><a href="01.html"><span>유의사항</span></a></li>
+				<li><a href="03.html"><span>원서작성</span></a></li>
+				<li><a href="05_1.html"><span>전형료결제</span></a></li>
+				<li><a href="06_1.html"><span>접수완료확인</span></a></li>
+			</ul>	
+		</div>
+	</div> <!-- // inner -->
+</div> <!-- // header -->
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.open_box_mb').each(function(){
+			$(this).find('.list_tit').click(function(){
+				if(!$(this).hasClass('on')){
+					$(this).addClass('on');
+					$(this).siblings('.cont').addClass('on');
+				}else{
+					$(this).removeClass('on');
+					$(this).siblings('.cont').removeClass('on');
+				}
+			});			
+		});		
+	});
+</script>
+
+<div id="container">
+	<div class="contents">	
+		<div class="apply_pay_wrap">
+			<div class="open_box_mb list_box">
+				<h2 class="list_tit">결제 대기중인 접수 목록</h2>
+				<div class="list_wrap cont">
+					<div class="list">
+						<div class="text_area">
+							<p class="txt1">중앙대학교 4년제 정시모집</p>
+							<p class="txt2"><span class="now">마감</span><span class="txt">2024.01.15 18:00:00</span></p>
+							<p class="txt3">유웨이 전형 유웨이 모집단위1 정원내 일반전형 예체능 계열 유웨이 학과2 </p>
+							<p class="price">결제금액 <strong class="num">80,000<span class="won">원</span></strong></p>
+						</div>
+					</div> <!-- // list -->
+				</div> <!-- // list_wrap -->
+			</div>
+			
+			<div class="open_box_mb payment_wrap list_box">
+				<h2 class="list_tit">결제수단 선택</h2>		
+				<div class="cont">
+					<div class="payment">
+						<button class="payment_method"><span>결제수단1</span></button>
+						<button class="payment_method"><span>결제수단2</span></button>
+						<button class="payment_method"><span>결제수단3</span></button>
+						<button class="payment_method"><span>결제수단4</span></button>
+						<button class="payment_method"><span>결제수단5</span></button>
+					</div> <!-- // list -->
+				</div>
+			</div> <!-- // payment_wrap -->
+
+			<p class="bt_txt"><span class="txt_pink">접수 완료(결제완료)</span> 된 후에는 접수 취소 및 변경이 불가능합니다.</p>
+
+			<div class="btn_area_bt">
+				<div class="btn btn_gray half"><span>취소</span></div>
+				<div class="btn btn_pink half"><span>결제</span></div>
+			</div>
+
+		</div> <!-- // inner -->
+	</div> <!-- // contents -->
+</div> <!-- // container -->
+
+<div class="footer">
+	<div class="inner">
+		<ul class="footer_menu">
+			<li><a href="#">회사소개</a></li>
+			<li><a href="#">개인정보처리방침</a></li>
+			<li><a href="#">이용자약관</a></li>
+		</ul>
+		<p class="copy">Copyright&copy; <span class="txt_pink">(주)유웨이어플라이</span> All Rights Reserved.</p>
+	</div>
+</div>
+	
+</body>
+</html>
