@@ -38,7 +38,7 @@ body{min-height:100vh; height:auto;}
 .header .univ_logo{display:inline-block;}
 .header .univ_logo img{max-width:175px;}
 .header .top_tit{width:40%; font-size:18px; font-weight:300;line-height:1.2; max-height:3.6em; overflow:hidden; text-overflow:ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; word-break: keep-all;}
-.header .gnb{/* position:absolute; top:50%; right:0; transform:translateY(-50%); */}
+.header .gnb{display:flex;}
 .header .gnb > li{display:inline-block; margin-left:44px;}
 .header .gnb > li:first-child{margin-left:0;}
 .header .gnb > li > a{display:block; font-size:20px; font-weight:200; line-height:1;}
