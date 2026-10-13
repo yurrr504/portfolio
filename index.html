@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YURRR — Every pixel, for every person.</title>
+  <meta name="description" content="디자인을 이해하고, 디테일을 구현하며, 더 나은 웹의 완성도를 고민하는 웹 퍼블리셔 YURRR의 포트폴리오">
+
+  <!-- Font: Pretendard -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+  <script>
+    // JS 사용 표시 + 인트로 생략 여부 (같은 탭에서 한 번만 / 움직임 줄이기 / ?intro 로 강제 재생)
+    (function (d) {
+      var root = d.documentElement;
+      root.classList.add('js');
+      try {
+        var force = /[?&]intro\b/.test(location.search);
+        var seen = sessionStorage.getItem('yurrr-intro-seen');
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!force && (seen || reduce)) root.classList.add('no-intro');
+      } catch (e) {
+        root.classList.add('no-intro');
+      }
+    })(document);
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- ===================== INTRO =====================
+       YURI + RRR → YURRR → 상단 로고로 이동 (장식, 클릭·키 입력 시 건너뛰기) -->
+  <div class="intro" aria-hidden="true">
+    <div class="intro__bg"></div>
+    <div class="intro__mark"><span class="intro__ch" style="--i:0">Y</span><span class="intro__ch" style="--i:1">U</span><span class="intro__drop"><span class="intro__ch" style="--i:2">R</span><span class="intro__ch" style="--i:3">I</span></span><span class="intro__drop intro__plus"><span class="intro__ch" style="--i:4">+</span></span><span class="intro__ch intro__r" style="--i:5">R</span><span class="intro__ch intro__r" style="--i:6">R</span><span class="intro__ch intro__r" style="--i:7">R</span></div>
+    <p class="intro__caption" lang="en">Yuri + <b>R</b>ead · <b>R</b>ender · <b>R</b>efine</p>
+  </div>
+
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header" id="header">
+    <div class="header__inner container">
+      <!-- YURRR = Yuri + Read · Render · Refine (호버·포커스 시 펼쳐짐) -->
+      <a class="header__logo logo" href="#home" aria-label="YURRR, 처음으로">
+        <span class="logo__short" aria-hidden="true">YURRR</span>
+        <span class="logo__long" aria-hidden="true">Yuri · <b>R</b>ead · <b>R</b>ender · <b>R</b>efine</span>
+      </a>
+
+      <button class="gnb__toggle" type="button" aria-expanded="false" aria-controls="gnb">
+        <span class="sr-only">메뉴 열기</span>
+        <span class="gnb__toggle-bar" aria-hidden="true"></span>
+        <span class="gnb__toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <nav class="gnb__nav" id="gnb" aria-label="주요 메뉴">
+        <ul class="gnb__list">
+          <li><a class="gnb__link" href="#home">HOME</a></li>
+          <li><a class="gnb__link" href="#about">ABOUT</a></li>
+          <li><a class="gnb__link" href="#project">PROJECT</a></li>
+          <li><a class="gnb__link" href="#skills">SKILLS</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===================== HOME ===================== -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <!-- 배경: 격자 점 물결 애니메이션 (장식) -->
+      <canvas class="hero__bg" aria-hidden="true"></canvas>
+
+      <div class="hero__inner container">
+        <div class="hero__top hero__fade">
+          <p class="hero__label label">(01) Web Publisher — Portfolio</p>
+
+          <!-- Design ⇄ Code 전환: 이 화면을 만든 HTML을 보여줌 -->
+          <div class="view-switch" role="group" aria-label="첫 화면 보기 방식">
+            <button class="view-switch__btn" type="button" data-view-btn="design" aria-pressed="true">Design</button>
+            <button class="view-switch__btn" type="button" data-view-btn="code" aria-pressed="false">Code</button>
+          </div>
+        </div>
+
+        <div class="hero__stage" data-view="design">
+          <div class="hero__design" data-view-panel="design">
+            <p class="hero__display" lang="en">
+              <span class="hero__line"><span class="hero__line-inner">Every pixel,</span></span>
+              <span class="hero__line"><span class="hero__line-inner">for <span class="hl">every person</span><span class="accent">.</span></span></span>
+            </p>
+
+            <div class="hero__body">
+              <div class="hero__copy hero__fade">
+                <h1 class="hero__title" id="hero-title">
+                  <span class="hero__title-line"><span>디자인을 이해하고,</span></span>
+                  <span class="hero__title-line"><span>디테일을 구현하며,</span></span>
+                  <span class="hero__title-line"><span>더 나은 웹의 완성도를 고민합니다.</span></span>
+                </h1>
+                <p class="hero__desc">웹 표준과 접근성을 바탕으로, 누구나 쓸 수 있고 오래 운영해도 흔들리지 않는 화면을 만듭니다.</p>
+                <a class="btn btn--primary hero__cta" href="#project">View Projects <span class="btn__arrow" aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero__code code-view" data-view-panel="code" hidden>
+            <div class="code-view__bar">
+              <span class="code-view__file">index.html</span>
+              <span class="code-view__note">#home — 이 화면의 실제 마크업 (일부 생략)</span>
+            </div>
+            <pre class="code-view__pre" tabindex="0" aria-label="첫 화면 HTML 코드"><code data-code-target></code></pre>
+          </div>
+        </div>
+
+        <div class="hero__meta hero__fade">
+          <dl class="stats">
+            <div class="stat stat--wide">
+              <dt class="label">Experience</dt>
+              <dd class="stat__value stat__value--text">2022.04 — 2025.10</dd>
+            </div>
+            <div class="stat">
+              <dt class="label">신규 구축</dt>
+              <dd class="stat__value"><span class="stat__num">3</span><span class="stat__unit">개교</span></dd>
+            </div>
+            <div class="stat">
+              <dt class="label">리뉴얼</dt>
+              <dd class="stat__value"><span class="stat__num">4</span><span class="stat__unit">개교</span></dd>
+            </div>
+            <div class="stat stat--key">
+              <dt class="label"><span class="key-dot" aria-hidden="true"></span>웹 접근성 인증</dt>
+              <dd class="stat__value"><span class="stat__num">2</span><span class="stat__unit">개교</span></dd>
+            </div>
+            <div class="stat">
+              <dt class="label">유지보수</dt>
+              <dd class="stat__value"><span class="stat__num">17+</span><span class="stat__unit">개교</span></dd>
+            </div>
+          </dl>
+
+          <div class="hero__meta-foot">
+            <p class="hero__key"><span class="key-dot" aria-hidden="true"></span><span class="label">Key Experience</span> 웹 접근성 인증 작업 · SVN 형상관리</p>
+            <p class="hero__tab-hint" aria-hidden="true">Press <kbd>Tab</kbd> — 키보드로도 모든 곳에 닿습니다</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code 보기에 표시되는 원본. 위 마크업을 바꾸면 함께 맞춰 주세요 -->
+      <script type="text/plain" id="hero-code-source"><section class="hero" id="home" aria-labelledby="hero-title">
+  <p class="hero__display" lang="en">
+    Every pixel,
+    for <span class="hl">every person</span><span class="accent">.</span>
+  </p>
+
+  <h1 class="hero__title" id="hero-title">
+    <span class="hero__title-line">디자인을 이해하고,</span>
+    <span class="hero__title-line">디테일을 구현하며,</span>
+    <span class="hero__title-line">더 나은 웹의 완성도를 고민합니다.</span>
+  </h1>
+
+  <p class="hero__desc">웹 표준과 접근성을 바탕으로, ...</p>
+  <a class="btn btn--primary hero__cta" href="#project">View Projects</a>
+</section></script>
+    </section>
+
+    <!-- 키워드 띠: 장식 (내용은 본문에 모두 있음). 같은 묶음을 두 번 넣어 끊김 없이 반복 -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" lang="en">
+        <div class="marquee__group"><span class="marquee__item">Web Standards</span><span class="marquee__dot"></span><span class="marquee__item">Web Accessibility</span><span class="marquee__dot"></span><span class="marquee__item">Cross Browsing</span><span class="marquee__dot"></span><span class="marquee__item">Responsive</span><span class="marquee__dot"></span><span class="marquee__item">Adaptive</span><span class="marquee__dot"></span><span class="marquee__item">SVN</span><span class="marquee__dot"></span><span class="marquee__item">Figma</span><span class="marquee__dot"></span><span class="marquee__item">Read</span><span class="marquee__dot"></span><span class="marquee__item">Render</span><span class="marquee__dot"></span><span class="marquee__item">Refine</span><span class="marquee__dot"></span></div>
+        <div class="marquee__group"><span class="marquee__item">Web Standards</span><span class="marquee__dot"></span><span class="marquee__item">Web Accessibility</span><span class="marquee__dot"></span><span class="marquee__item">Cross Browsing</span><span class="marquee__dot"></span><span class="marquee__item">Responsive</span><span class="marquee__dot"></span><span class="marquee__item">Adaptive</span><span class="marquee__dot"></span><span class="marquee__item">SVN</span><span class="marquee__dot"></span><span class="marquee__item">Figma</span><span class="marquee__dot"></span><span class="marquee__item">Read</span><span class="marquee__dot"></span><span class="marquee__item">Render</span><span class="marquee__dot"></span><span class="marquee__item">Refine</span><span class="marquee__dot"></span></div>
+      </div>
+    </div>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container split">
+        <header class="split__head section-head">
+          <span class="section-head__index label">(02)</span>
+          <h2 class="section-head__title" id="about-title" lang="en">About</h2>
+          <p class="section-head__sub">웹 퍼블리셔 소개</p>
+        </header>
+
+        <div class="split__body">
+          <p class="about__lead reveal">
+            디자인 시안을 정확하게 구현하는 웹 퍼블리셔입니다.
+            다양한 대학 입학처 홈페이지와 입학 관련 웹 서비스의 구축, 리뉴얼, 웹 접근성 인증, 유지보수 작업을 수행했습니다.
+          </p>
+
+          <div class="about__block reveal">
+            <h3 class="block-label label">Key Experience</h3>
+            <ul class="key-list">
+              <li class="key-card">
+                <span class="key-card__tag" lang="en">Web Accessibility</span>
+                <h4 class="key-card__title">웹 접근성 인증 작업</h4>
+                <p class="key-card__desc">강남대학교·고려대학교 입학처 홈페이지의 웹 접근성 인증 작업에 참여했습니다. 접근성 기준에 맞춰 마크업과 화면을 개선했습니다.</p>
+                <p class="key-card__meta">강남대학교 · 고려대학교</p>
+              </li>
+              <li class="key-card">
+                <span class="key-card__tag" lang="en">Version Control</span>
+                <h4 class="key-card__title">SVN 기반 형상관리</h4>
+                <p class="key-card__desc">실무 프로젝트의 소스 버전 관리와 협업에 SVN을 사용했습니다. 구축·리뉴얼·유지보수 작업의 변경 이력을 관리했습니다.</p>
+                <p class="key-card__meta" lang="en">SVN · GitHub</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="about__block reveal">
+            <h3 class="block-label label">Working Process — Y·U·R·R·R</h3>
+            <ol class="process">
+              <li class="process__item">
+                <span class="process__step label">R1</span>
+                <h4 class="process__title" lang="en">Read</h4>
+                <p class="process__ko">디자인을 이해하다</p>
+                <p class="process__desc">시안의 의도와 구조를 먼저 읽습니다. 반복되는 패턴과 공통 요소를 찾아 마크업 구조를 설계합니다.</p>
+              </li>
+              <li class="process__item">
+                <span class="process__step label">R2</span>
+                <h4 class="process__title" lang="en">Render</h4>
+                <p class="process__ko">디테일을 구현하다</p>
+                <p class="process__desc">시맨틱 마크업과 재사용 가능한 CSS로 화면을 구현합니다. 반응형·적응형 웹과 원서접수 같은 입력 중심 서비스를 만들었습니다.</p>
+              </li>
+              <li class="process__item">
+                <span class="process__step label">R3</span>
+                <h4 class="process__title" lang="en">Refine</h4>
+                <p class="process__ko">완성도를 고민하다</p>
+                <p class="process__desc">웹 접근성 기준과 세부 디테일을 검수하며 다듬습니다. 강남대·고려대 웹 접근성 인증 작업과 다수 대학 홈페이지 유지보수를 맡았습니다.</p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="about__block reveal">
+            <h3 class="block-label label">Career</h3>
+            <div class="career">
+              <p class="career__company">유웨이어플라이</p>
+              <p class="career__role">웹 퍼블리셔</p>
+              <p class="career__period">2022.04 — 2025.10</p>
+            </div>
+          </div>
+
+          <div class="about__block reveal">
+            <h3 class="block-label label">What I Did</h3>
+            <ol class="work-list">
+              <li class="work-item">
+                <span class="work-item__num label">01</span>
+                <div>
+                  <h4 class="work-item__title">대학 입학처 홈페이지 구축 및 리뉴얼</h4>
+                  <p class="work-item__desc">웹 페이지 퍼블리싱과 메인 페이지 및 서브 페이지 개선 작업을 수행했습니다.</p>
+                  <dl class="work-item__tags">
+                    <div><dt>신규 구축</dt><dd>가톨릭대학교, 서울시립대학교, 부경대학교</dd></div>
+                    <div><dt>메인 리뉴얼</dt><dd>강남대학교, 국민대학교, 고려대학교</dd></div>
+                    <div><dt>메인·서브 상단 리뉴얼</dt><dd>전북대학교</dd></div>
+                  </dl>
+                </div>
+              </li>
+              <li class="work-item">
+                <span class="work-item__num label">02</span>
+                <div>
+                  <h4 class="work-item__title">웹 서비스 및 이벤트 페이지 구축</h4>
+                  <p class="work-item__desc">입학상담 솔루션, TA 반응형 웹 원서접수 서비스 구축, 유마켓 웹사이트 리뉴얼, 유웨이어플라이 이벤트 페이지 다수 제작을 수행했습니다.</p>
+                </div>
+              </li>
+              <li class="work-item">
+                <span class="work-item__num label">03</span>
+                <div>
+                  <h4 class="work-item__title">웹 접근성 인증 작업</h4>
+                  <p class="work-item__desc">웹 접근성 기준을 고려한 홈페이지 개선 및 인증 작업에 참여했습니다. — 강남대학교, 고려대학교</p>
+                </div>
+              </li>
+              <li class="work-item">
+                <span class="work-item__num label">04</span>
+                <div>
+                  <h4 class="work-item__title">웹사이트 유지보수</h4>
+                  <p class="work-item__desc">다수의 대학 입학처 홈페이지와 관련 웹 서비스의 기존 페이지 개선 및 운영에 필요한 퍼블리싱 업무를 담당했습니다.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="about__block reveal">
+            <h3 class="block-label label">Maintained</h3>
+            <ul class="client-list">
+              <li>유웨이어플라이</li><li>유마켓</li><li>가톨릭대학교</li><li>고려대학교</li><li>강남대학교</li><li>국민대학교</li><li>전북대학교</li><li>협성대학교</li><li>경기대학교</li><li>계명대학교</li><li>남서울대학교</li><li>백석대학교</li><li>한국공학대학교</li><li>상명대학교</li><li>서울과학기술대학교</li><li>원광대학교</li><li>한성대학교</li><li>호서대학교</li><li>중원대학교 외</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECT ===================== -->
+    <!--
+      데스크톱(1024px 이상): 섹션이 고정되고 세로 스크롤에 따라 카드가 가로로 이동
+      태블릿·모바일 / 움직임 줄이기 설정 / JS 없음: 카드 영역을 손가락·트랙패드로 가로 스크롤
+
+      [수정 안내]
+      - 카드 1개 = <li class="project__item"> 1개. 개수를 바꾸면 번호와 진행 표시가 자동으로 맞춰짐
+      - --project-tint: 카드 이미지 영역 배경 톤
+      - 이미지: images/ 폴더의 WebP (가로 1200px). 교체 시 src, alt, height 수정
+      - 링크가 있는 카드: 제목 <a>에 주소 입력 / 링크가 없는 카드: project-card--static (제목만 표시)
+    -->
+    <section class="section project is-dark" id="project" aria-labelledby="project-title">
+      <div class="project__pin" data-project-pin>
+        <div class="project__stage">
+          <header class="project__head reveal">
+            <span class="section-head__index label">(03)</span>
+            <h2 class="section-head__title" id="project-title" lang="en">Project</h2>
+            <p class="section-head__sub">주요 프로젝트</p>
+            <p class="project__note">실무에서 담당한 구축·리뉴얼·접근성 프로젝트입니다.</p>
+            <div class="project__progress" aria-hidden="true">
+              <span class="project__count"><span data-project-current>01</span> / <span data-project-total>09</span></span>
+              <span class="project__bar"><span class="project__bar-fill" data-project-bar></span></span>
+            </div>
+          </header>
+
+          <div class="project__viewport" data-project-viewport>
+            <ul class="project__track" data-project-track>
+              <li class="project__item">
+                <article class="project-card" style="--project-tint: #E4E8F0;">
+                  <div class="project-card__meta">
+                    <span class="project-card__num">01</span>
+                    <span class="project-card__type label">신규 구축</span>
+                  </div>
+                  <div class="project-card__media">
+                    <div class="shot">
+                      <div class="shot__frame">
+                        <span class="shot__bar" aria-hidden="true"></span>
+                        <img class="shot__img" src="images/project-01-catholic.webp" alt="가톨릭대학교 입학처 메인 화면" width="1200" height="554" loading="lazy" decoding="async">
+                      </div>
+                    </div>
+                  </div>
+                  <h3 class="project-card__title"><a class="project-card__link" href="https://ipsi.catholic.ac.kr/" target="_blank" rel="noopener noreferrer">가톨릭대학교 입학처 홈페이지<span class="sr-only"> (새 창으로 열림)</span></a></h3>
+                  <p class="project-card__desc">반응형 입학처 홈페이지 신규 구축 퍼블리싱</p>
+                  <ul class="tech-list" aria-label="사용 기술"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>jQuery</li><li>Responsive</li></ul>
+                  <span class="project-card__view label" aria-hidden="true">Visit Site <span class="project-card__arrow">↗</span></span>
+                </article>
+              </li>
+              <li class="project__item">
+                <article class="project-card" style="--project-tint: #E8ECE4;">
+                  <div class="project-card__meta">
+                    <span class="project-card__num">02</span>
+                    <span class="project-card__type label">신규 구축</span>
+                  </div>
+                  <div class="project-card__media">
+                    <div class="shot">
+                      <div class="shot__frame">
+                        <span class="shot__bar" aria-hidden="true"></span>
+                        <img class="shot__img" src="images/project-02-uos.webp" alt="서울시립대학교 입학처 메인 화면" width="1200" height="581" loading="lazy" decoding="async">
+                      </div>
+                    </div>
+                  </div>
+                  <h3 class="project-card__title"><a class="project-card__link" href="https://admission.uos.ac.kr/" target="_blank" rel="noopener noreferrer">서울시립대학교 입학처 홈페이지<span class="sr-only"> (새 창으로 열림)</span></a></h3>
+                  <p class="project-card__desc">반응형 입학처 홈페이지 신규 구축 퍼블리싱</p>
+                  <ul class="tech-list" aria-label="사용 기술"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>jQuery</li><li>Responsive</li></ul>
+                  <span class="project-card__view label" aria-hidden="true">Visit Site <span class="project-card__arrow">↗</span></span>
+                </article>
+              </li>
+              <li class="project__item">
+                <article class="project-card" style="--project-tint: #E2EAF0;">
+                  <div class="project-card__meta">
+                    <span class="project-card__num">03</span>
+                    <span class="project-card__type label">신규 구축</span>
+                  </div>
+                  <div class="project-card__media">
+                    <div class="shot">
+                      <div class="shot__frame">
+                        <span class="shot__bar" aria-hidden="true"></span>
+                        <img class="shot__img" src="images/project-03-pknu.webp" alt="국립부경대학교 입학안내 메인 화면" width="1200" height="556" loading="lazy" decoding="async">
+                      </div>
+                    </div>
+                  </div>
+                  <h3 class="project-card__title"><a class="project-card__link" href="https://iphak.pknu.ac.kr/" target="_blank" rel="noopener noreferrer">부경대학교 입학처 홈페이지<span class="sr-only"> (새 창으로 열림)</span></a></h3>
+                  <p class="project-card__desc">반응형 입학처 홈페이지 신규 구축 퍼블리싱</p>
+                  <ul class="tech-list" aria-label="사용 기술"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>jQuery</li><li>Responsive</li></ul>
+                  <span class="project-card__view label" aria-hidden="true">Visit Site <span class="project-card__arrow">↗</span></span>
+                </article>
+              </li>
+              <li class="project__item">
+                <article class="project-card" style="--project-tint: #F0E5E5;">
+                  <div class="project-card__meta">
+                    <span class="project-card__num">04</span>
+                    <span class="project-card__type label">리뉴얼</span>
+                  </div>
+                  <div class="project-card__media">
+                    <div class="shot">
+                      <div class="shot__frame">
+                        <span class="shot__bar" aria-hidden="true"></span>
+                        <img class="shot__img" src="images/project-04-korea.webp" alt="고려대학교 입학처 메인 화면" width="1200" height="552" loading="lazy" decoding="async">
+                      </div>
+                    </div>
+                  </div>
+                  <h3 class="project-card__title"><a class="project-card__link" href="https://oku.korea.ac.kr/oku/index.do" target="_blank" rel="noopener noreferrer">고려대학교 입학처 홈페이지<span class="sr-only"> (새 창으로 열림)</span></a></h3>
+                  <p class="project-card__desc">반응형 메인 페이지 리뉴얼 퍼블리싱</p>
+                  <p class="project-card__badge"><span class="key-dot" aria-hidden="true"></span>웹 접근성 인증 작업</p>
+                  <ul class="tech-list" aria-label="사용 기술"><li>HTML</li><li>CSS</li><li>jQuery</li><li>Responsive</li></ul>
+                  <span class="project-card__view label" aria-hidden="true">Visit Site <span class="project-card__arrow">↗</span></span>
+                </article>
+              </li>
+              <li class="project__item">
+                <article class="project-card" style="--project-tint: #E8E6EE;">
+                  <div class="project-card__meta">
+                    <span class="project-card__num">05</span>
+                    <span class="project-card__type label">리뉴얼</span>
+                  </div>
+                  <div class="project-card__media">
+                    <div class="shot">
+                      <div class="shot__frame">
+                        <span class="shot__bar" aria-hidden="true"></span>
+                        <img class="shot__img" src="images/project-05-jbnu.webp" alt="전북대학교 입학처 메인 화면" width="1200" height="552" loading="lazy" decoding="async">
+                      </div>
+                    </div>
+                  </div>
+                  <h3 class="project-card__title"><a class="project-card__link" href="https://enter.jbnu.ac.kr/" target="_blank" rel="noopener noreferrer">전북대학교 입학처 홈페이지<span class="sr-only"> (새 창으로 열림)</span></a></h3>
+                  <p class="project-card__desc">반응형 메인 페이지 및 서브 페이지 상단 리뉴얼 퍼블리싱</p>
+                  <ul class="tech-list" aria-label="사용 기술"><li>HTML</li><li>CSS</li><li>jQuery</li><li>Responsive</li></ul>
+                  <span class="project-card__view label" aria-hidden="true">Visit Site <span class="project-card__arrow">↗</span></span>
+                </article>
+              </li>
+              <li class="project__item">
+                <article class="project-card" style="--project-tint: #F3E6EA;">
+                  <div class="project-card__meta">
+                    <span class="project-card__num">06</span>
+                    <span class="project-card__type label">리뉴얼 · 적응형</span>
+                  </div>
+                  <div class="project-card__media">
+                    <div class="shot">
+                      <div class="shot__frame">
+                        <span class="shot__bar" aria-hidden="true"></span>
+                        <img class="shot__img" src="images/project-06-umarket.webp" alt="유마켓 메인 화면" width="1200" height="556" loading="lazy" decoding="async">
+                      </div>
+                    </div>
+                  </div>
+                  <h3 class="project-card__title"><a class="project-card__link" href="https://umarket.uway.com/" target="_blank" rel="noopener noreferrer">유마켓 웹사이트<span class="sr-only"> (새 창으로 열림)</span></a></h3>
+                  <p class="project-card__desc">적응형 웹사이트 리뉴얼 퍼블리싱 (PC·모바일 각각 제작)</p>
+                  <ul class="tech-list" aria-label="사용 기술"><li>HTML</li><li>CSS</li><li>jQuery</li><li>Adaptive</li></ul>
+                  <span class="project-card__view label" aria-hidden="true">Visit Site <span class="project-card__arrow">↗</span></span>
+                </article>
+              </li>
+              <li class="project__item">
+                <article class="project-card project-card--static" style="--project-tint: #E3ECE8;">
+                  <div class="project-card__meta">
+                    <span class="project-card__num">07</span>
+                    <span class="project-card__type label">서비스 구축</span>
+                  </div>
+                  <div class="project-card__media">
+                    <div class="shot">
+                      <div class="shot__frame">
+                        <span class="shot__bar" aria-hidden="true"></span>
+                        <img class="shot__img" src="images/project-07-ta-apply.webp" alt="원서접수 서비스의 원서작성 화면, 라디오 버튼과 체크박스 입력 요소" width="1200" height="557" loading="lazy" decoding="async">
+                      </div>
+                    </div>
+                  </div>
+                  <h3 class="project-card__title">TA 반응형 웹 원서접수 서비스</h3>
+                  <p class="project-card__desc">반응형 원서접수 서비스 구축 퍼블리싱</p>
+                  <ul class="tech-list" aria-label="사용 기술"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Responsive</li></ul>
+                </article>
+              </li>
+              <li class="project__item">
+                <article class="project-card project-card--static" style="--project-tint: #EAE7F1;">
+                  <div class="project-card__meta">
+                    <span class="project-card__num">08</span>
+                    <span class="project-card__type label">솔루션 구축</span>
+                  </div>
+                  <div class="project-card__media">
+                    <div class="shot">
+                      <div class="shot__frame">
+                        <span class="shot__bar" aria-hidden="true"></span>
+                        <img class="shot__img" src="images/project-08-counsel.webp" alt="입학상담 서비스 메인 화면, 수시·정시 상담하기 버튼" width="1200" height="558" loading="lazy" decoding="async">
+                      </div>
+                    </div>
+                  </div>
+                  <h3 class="project-card__title">입학상담 솔루션</h3>
+                  <p class="project-card__desc">반응형 입학상담 솔루션 화면 구축 퍼블리싱</p>
+                  <ul class="tech-list" aria-label="사용 기술"><li>HTML</li><li>CSS</li><li>jQuery</li><li>Responsive</li></ul>
+                </article>
+              </li>
+              <li class="project__item">
+                <article class="project-card project-card--static" style="--project-tint: #F1ECE2;">
+                  <div class="project-card__meta">
+                    <span class="project-card__num">09</span>
+                    <span class="project-card__type label">이벤트 페이지</span>
+                  </div>
+                  <div class="project-card__media project-card__media--text" aria-hidden="true">
+                    <span class="media-type" lang="en">Event<br>Pages</span>
+                    <span class="media-type__sub label">Multiple Works</span>
+                  </div>
+                  <h3 class="project-card__title">유웨이어플라이 이벤트 페이지</h3>
+                  <p class="project-card__desc">반응형 이벤트 페이지 다수 제작</p>
+                  <ul class="tech-list" aria-label="사용 기술"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>jQuery</li><li>Responsive</li></ul>
+                </article>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container split">
+        <header class="split__head section-head">
+          <span class="section-head__index label">(04)</span>
+          <h2 class="section-head__title" id="skills-title" lang="en">Skills</h2>
+          <p class="section-head__sub">기술 역량</p>
+        </header>
+
+        <div class="split__body">
+          <div class="skill-group reveal">
+            <h3 class="block-label label">Markup &amp; Style</h3>
+            <ul class="skill-list">
+              <li class="skill-item"><span class="skill-item__name" lang="en">HTML5</span><span class="skill-item__note">시맨틱 마크업 기반 화면 구현</span></li>
+              <li class="skill-item"><span class="skill-item__name" lang="en">CSS3</span><span class="skill-item__note">디자인 시안 기반 레이아웃 구현</span></li>
+              <li class="skill-item"><span class="skill-item__name" lang="en">Responsive Web</span><span class="skill-item__note">대학 입학처 홈페이지·웹 서비스 반응형 구축</span></li>
+              <li class="skill-item"><span class="skill-item__name" lang="en">Web Standards</span><span class="skill-item__note">다수 대학 홈페이지 구축 및 유지보수</span></li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3 class="block-label label">Accessibility</h3>
+            <ul class="skill-list">
+              <li class="skill-item skill-item--key"><span class="skill-item__name" lang="en">Web Accessibility <span class="skill-item__badge">KEY</span></span><span class="skill-item__note">강남대학교·고려대학교 입학처 웹 접근성 인증 작업 참여</span></li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3 class="block-label label">Script</h3>
+            <ul class="skill-list">
+              <li class="skill-item"><span class="skill-item__name" lang="en">JavaScript</span><span class="skill-item__note">화면 인터랙션 구현</span></li>
+              <li class="skill-item"><span class="skill-item__name" lang="en">jQuery</span><span class="skill-item__note">실무 프로젝트 인터랙션 구현</span></li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3 class="block-label label">Version Control</h3>
+            <ul class="skill-list">
+              <li class="skill-item skill-item--key"><span class="skill-item__name" lang="en">SVN <span class="skill-item__badge">KEY</span></span><span class="skill-item__note">실무 프로젝트 소스 버전 관리 및 협업</span></li>
+              <li class="skill-item"><span class="skill-item__name" lang="en">GitHub</span><span class="skill-item__note">소스 버전 관리</span></li>
+            </ul>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3 class="block-label label">Design Tools</h3>
+            <ul class="tool-list" lang="en">
+              <li>Photoshop</li><li>Illustrator</li><li>Figma</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer is-dark">
+    <div class="container">
+      <p class="footer__closing" lang="en">Thank you<span class="accent">.</span></p>
+      <p class="footer__sign" lang="en"><strong>YURRR</strong> — Yuri, who Reads, Renders and Refines.</p>
+
+      <dl class="footer__contact">
+        <div>
+          <dt class="label">Email</dt>
+          <dd><a href="mailto:yurrr504@gmail.com">yurrr504@gmail.com</a></dd>
+        </div>
+        <!-- GitHub 주소가 생기면 주석 해제 후 href 입력
+        <div>
+          <dt class="label">GitHub</dt>
+          <dd><a href="https://github.com/" target="_blank" rel="noopener">github.com/</a></dd>
+        </div>
+        -->
+      </dl>
+
+      <div class="footer__bottom">
+        <p class="label">© 2026 YURRR</p>
+        <a class="footer__top-link label" href="#home">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
