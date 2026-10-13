@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>TA 원서접수</title>
+	<link rel="icon" href="common/main_img/mobile/favicon.png" type="image/x-icon"> 
+	<link rel="stylesheet" type="text/css" href="common/main_img/mobile/css/reset.css" />
+	<link rel="stylesheet"type="text/css"  href="common/main_img/mobile/css/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="common/main_img/mobile/css/style.css" />
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="js/init.js"></script>	
+</head>
+<body>
+
+<div class="header">
+	<div class="top_menu">
+		<div class="inner clfix">
+			<a href="https://www.uwayapply.com/" target="_blank" class="home">유웨이 어플라이 홈</a>		
+			<!-- 로그인 전 -->
+			<ul class="login_menu clfix">	
+				<li><a href="#">로그인</a></li>
+				<li><a href="#">회원가입</a></li>
+				<li><a href="#">고객센터</a></li>
+				<li><a href="#">파워경쟁률</a></li>
+				<li><a href="#">English</a></li>
+			</ul>
+			<!-- 로그인 시 -->
+			<!-- <ul class="login_menu clfix">
+				<li class="user"><a href="#"><span class="user_name">유웨이</span>님</a></li>				
+				<li><a href="#">로그아웃</a></li>
+				<li class="ucash"><a href="#">유캐시 <span class="cash">20,000</span>원</a></li>
+				<li><a href="#">내원서보관함</a></li>
+				<li><a href="#">고객센터</a></li>
+				<li><a href="#">파워경쟁률</a></li>
+				<li><a href="#">English</a></li>
+			</ul> -->
+		</div>
+	</div> <!-- // top_menu -->
+	<div class="inner header_inner">
+		<div class="header_left">
+			<a href="#"target="_blank" class="univ_logo"><img src="common/main_img/mobile/univ_logo.png" alt="대학별 로고"></a>
+			<h2 class="top_tit">건설대학원 전반기 신입생 모집(2차) 전반기 신입생 모집 전반기 신입생 모집</h2>
+			<a href="#" class="user_m"></a>
+		</div>
+		<div class="header_right">
+			<ul class="gnb">
+				<li><a href="01.html"><span>유의사항</span></a></li>
+				<li class="on"><a href="03.html"><span>원서작성</span></a></li>
+				<li><a href="05_1.html"><span>전형료결제</span></a></li>
+				<li><a href="06_1.html"><span>접수완료확인</span></a></li>
+			</ul>	
+		</div>
+	</div> <!-- // inner -->
+</div> <!-- // header -->
+
+<div class="m_pop_mypage">
+	<div class="inner">  
+		<button class="btn_close"></button>
+		<div class="top_area">
+			<a href="#" class="home">유웨이어플라이 홈</a>
+			<button class="btn_lang">Language</button>
+		</div>
+		<!-- <div class="user_info_box">
+			<div class="ucash_area">
+				<span class="logo">유캐시</span>
+				<a href="#" class="ucash"><span class="num">20,000</span>원</a>
+			</div>
+			<ul class="user_btn login">
+				<li class="btn"><a href="#"><span class="user txt">박하늘별님구리우리<span class="s1">님</span></span></a></li>
+				<li class="btn"><a href="#"><span class="logout txt">로그아웃</span></a></li>			
+			</ul> -->
+		<!-- // user_info_box 로그인시-->
+
+		<div class="user_info_box">
+			<ul class="user_btn logout">
+				<li class="btn"><a href="#"><span class="login txt">로그인</span></a></li>
+				<li class="btn"><a href="#"><span class="join txt">회원가입</span></a></li>
+			</ul>			
+		</div> 
+		<!-- // user_info_box 로그아웃시-->
+
+		<div class="mypage_menu">
+			<ul>
+				<li class="m1"><a href="#"><p class="txt">내원서 보관함</p></a></li>
+				<li class="m2"><a href="#"><p class="txt">고객센터</p></a></li>
+				<li class="m3"><a href="#"><p class="txt">파워경쟁률</p></a></li>
+			</ul>
+		</div>
+	</div>
+</div> <!-- // m_pop_mypage -->
+
+<style type="text/css">
+	.ui-datepicker{width:320px;}
+	.ui-datepicker .ui-datepicker-header{}
+	.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year{width:30%;}
+	.ui-datepicker .ui-datepicker-title select{margin-right:-10px; padding-right:12px; background:#2c2c2c; color:#fff; text-align:right;}
+	.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{font-size:14px;}
+	.ui-widget-content{overflow:hidden;}
+	.ui-datepicker tr th:nth-child(1),
+	.ui-datepicker tr td:nth-child(1) a{color:#e31953;}
+	@media all and (max-width:1024px){
+		.ui-datepicker{width:300px;}
+	}
+	@media all and (max-width:768px){
+		.ui-datepicker{width:42%;}
+		.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year{width:45%;}
+		.ui-datepicker .ui-datepicker-title select{font-size:15px; margin-right:-10px;}
+	}@media all and (max-width:450px){
+		.ui-datepicker{width:90%;}
+	}
+</style>
+
+<!-- datalist -->
+<link rel="stylesheet" type="text/css" href="common/main_img/mobile/css/jquery-editable-select.css" />
+<script type="text/javascript" src="js/jquery-editable-select.js"></script>	
+<script>
+	$(document).ready(function() {
+		$('#editable-select').editableSelect({ effects: 'fade' });
+	});
+</script>
+
+<script type="text/javascript">	
+	$(document).ready(function(){
+		$('.open_box').each(function(){
+			if (!$(this).hasClass('none')) {
+				$(this).find('.tit_form').click(function(){
+					if(!$(this).parent().hasClass('on')){
+						$(this).parent().addClass('on');
+					}else{
+						$(this).parent().removeClass('on');
+					}
+				});
+			}else {
+			}	 					
+		});
+
+		$('.datepicker').each(function(){
+			$(this).datepicker({
+				dateFormat: 'yy-mm-dd',
+				prevText: '이전 달',
+				nextText: '다음 달',
+				monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+				monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+				dayNames: ['일','월','화','수','목','금','토'],
+				dayNamesShort: ['일','월','화','수','목','금','토'],
+				dayNamesMin: ['일','월','화','수','목','금','토'],
+				showMonthAfterYear: true,
+				changeYear:true,
+				changeMonth:true,
+				yearSuffix: '년',
+				showOn:"both",
+				buttonText:"",
+				buttonImageOnly:true,
+				yearRange: "c-100:c+10"
+			});
+		});
+
+		$('.wrap_tel2 .btn_form').click(function(){
+			if (!$(this).hasClass('on')){
+				$(this).addClass('on');
+				$(this).text('전화번호 입력');
+				$(this).siblings('input').attr('placeholder','전화번호 없음');
+				$(this).siblings('input').prop('disabled', true);
+				$(this).siblings('input').val('');
+			}else{
+				$(this).removeClass('on');
+				$(this).text('전화번호 없음');
+				$(this).siblings('input').attr('placeholder','전화번호 입력');
+				$(this).siblings('input').prop('disabled', false);
+				$(this).siblings('input').val('');
+			}		
+		});		
+		
+		$('.wrap_input_txt .input_txt').each(function(){
+			$('.input_txt').keyup(function(){
+				$(this).siblings('.btn_clear').show();
+				$('.btn_clear').click(function(){
+					$(this).siblings('input[type="text"]').not('.reset').val('');
+					$(this).hide();
+				});
+			});	
+		});
+		
+		/** 은행 직접 선택 **/
+		$('.wrap_select_bank .select_bank').click(function(){
+			if (!$(this).next('.bank_list').hasClass('on')){
+				$(this).next('.bank_list').addClass('on');
+				$('.bank_list ul li').each(function(){
+					$(this).click(function(){
+						var selectBank = $(this).text();
+ 						$('.select_bank .name').text(selectBank);
+						$(this).parent().parent().removeClass('on');
+					});
+					$('.bank_list .ot_ft').click(function(){
+						$(this).parent().removeClass('on');
+					})
+				});
+			}else{
+				$(this).removeClass('on');
+			}
+		});		
+
+		$(' .wrap_account_certify .over_i').click(function(){
+			if (!$(this).next('.instruction_box').hasClass('on')){
+				$(this).next('.instruction_box').addClass('on');
+			}
+		});
+
+		$(' .instruction_box .btn_close').click(function(){
+			if ($(this).parent('.instruction_box').hasClass('on')){
+				$(this).parent('.instruction_box').removeClass('on');
+			}
+		});
+
+
+		//파일 업로드 
+		$('.file_upload').each(function(){
+			$(this).change(function() {
+				var i = $(this).prev('label').clone();
+				var file = $(this)[0].files[0].name;
+				$(this).parent().find('.file_info .file_name').text(file);
+			});
+		});
+
+		$('.file_upload2').each(function(){
+			$(this).change(function() {
+				var i = $(this).prev('label').clone();
+				var file = $(this)[0].files[0].name;
+				$(this).parent().find('.file_info .file_name').text(file);
+			});
+		});
+
+		$('.img_upload').each(function(){
+			$(this).change(function() {
+				var i = $(this).prev('label').clone();
+				var file = $(this)[0].files[0].name;
+				$(this).parent().find('.img_info .img_name').text(file);
+				$(this).parent().parent('.img_up').addClass('on');
+			});
+		});
+
+		// 글자수 카운팅
+		$("#word_check").keyup(function(e) {
+			var content = $(this).val();
+			$(".word_num").text("(" + content.length + "/300)"); //실시간 글자수 카운팅
+			if (content.length > 300) {
+				alert("최대 300자까지 입력 가능합니다.");
+				$(this).val(content.substring(0, 300));
+				$('#textLengthCheck').text("(0/50)");
+			}
+		});
+
+		/* 팝업 학위 모집단위 아코디언박스*/
+		$('.result_search_box li.has').each(function(){
+			$(this).find('>a').click(function(){
+				if(!$(this).parent().hasClass('on')){
+					$(this).parent().addClass('on');
+				}else{
+					$(this).parent().removeClass('on');
+				}
+			});	
+		});
+
+		//이메일 직접입력
+		$('.wrap_email .selectBox li').click(function(){
+			if (!$(this).hasClass('input')){
+				$('.wrap_email .mail03').hide();
+			}else{
+				$('.wrap_email .mail03').show();
+			}
+		});
+
+	});
+</script>
+
+<!-- 사진 편집 관련 --> 
+<script type="text/javascript" src="js/jquery.imgareaselect.min.js"></script>
+<script type="text/javascript" src="js/bsphoto_uway.js"></script>
+
+<script type="text/javascript">
+
+	function popupClose()
+	{
+		parent.postMessage('close['+window.name+']', '*');
+	}
+	window.alert = function(msg)
+	{
+		parent.postMessage('alert['+window.name+']:'+msg, '*');
+	}
+	$(function()
+	{
+		var ch = $(document).outerHeight();
+		var cw = $(document).outerWidth();
+		var sh = document.body.scrollHeight;
+		var sw = document.body.scrollWidth;
+
+		//	화면 너무 커서 조절해줌
+		//$('body').css('zoom','0.9');
+		//ch = ch*0.9;
+		//cw = cw*0.9;
+		//sh = sh*0.9;
+		//sw = sw*0.9;
+
+		parent.postMessage('sizeFix['+window.name+']:clientHeight:'+ch+'', '*');
+		parent.postMessage('sizeFix['+window.name+']:clientWidth:'+cw+'', '*');
+		parent.postMessage('sizeFix['+window.name+']:scrollHeight:'+sh+'', '*');
+		parent.postMessage('sizeFix['+window.name+']:scrollWidth:'+sw+'', '*');
+		parent.postMessage('load complete['+window.name+']', '*');
+	});
+
+	var frmValues = "".split("|");
+	var cTrimWidth = frmValues[9];		// 자르기 너비
+	var cTrimHeight = frmValues[10];	// 자르기 높이
+
+
+	function imgUploadCallback(uploadPath){/*파일업로드 완료시 callback 함수 uploadPath = 파일저장경로 +파일명 */
+		// console.log(uploadPath);
+		if (uploadPath.substr(0,2) == "OK")
+		{
+			var realPath = uploadPath.substr(3);
+
+			if( realPath !='' )
+			{
+				if ( frmValues[4] == '2' || frmValues[4] == '3' )
+				{
+					bs_photo.ImgWidth.value  = frmValues[9];
+					bs_photo.ImgHeight.value = frmValues[10];
+					bs_photo.Userid.value    = frmValues[1];
+					bs_photo.Path.value      = frmValues[2];
+					bs_photo.Mode.value      = frmValues[4];
+					bs_photo.UnivInfo.value  = frmValues[5];
+					bs_photo.FieldNm.value   = frmValues[7];
+					bs_photo.PhotoUrl.value  = frmValues[11];
+					bs_photo.UniqueId.value  = frmValues[12];
+					bs_photo.action='./view_photo.htm';
+					bs_photo.submit();
+
+					//window.location='https://'+frmValues[3]+'/common/photo/photo_view.htm?FieldNm='+frmValues[7]+'&ImgName=&Userid='+frmValues[1]+'&Path='+frmValues[2]+'&Photo_Yn=jpg&Mode='+frmValues[4]+'&UnivInfo='+frmValues[5]+'&PhotoUrl='+frmValues[11]+'&UniqueId='+frmValues[12]+'&ImgWidth='+frmValues[9]+'&ImgHeight='+frmValues[10];
+				} else {
+					window.location='https://'+frmValues[3]+'/common/photo/np_view.php?FieldNm='+frmValues[7]+'&ImgName=&Tmp_Userid='+frmValues[1]+'&Photo_Path='+frmValues[2]+'&Photo_Yn=jpg&Mode='+frmValues[4]+'&UnivInfo='+frmValues[5]+'&Photo_Url='+frmValues[11];
+				}
+			}
+		}
+		else if (uploadPath.substr(0,2) == "ER")
+		{
+			var gubun = uploadPath.split("|");
+			alert(gubun[1]+'KB 이하만 업로드 할 수 있습니다. 다시 시도해 주십시오.');
+		}
+	}
+
+	if (frmValues[4].match(/^(2|3)$/))
+	{
+		/*190930 기존사진 로드 참고용 스크립트*/
+		$(document).ready(function(){ 
+			photoeditor.image = new Image();
+			photoeditor.image.src= "https://"+frmValues[11]+"/PhotoImg/"+frmValues[2]+"/"+frmValues[1]+'.'+frmValues[12]+'.jpg?20240306094356.jpg';
+			photoeditor.image.onload = function(e) {
+				orgWidth = photoeditor.image.width;
+				orgHeight = photoeditor.image.height;
+				currentAngle = 0 ; 
+				currentPercent =100;
+				drawImg();
+				imageLoad =true;
+			};
+		});
+	}	
+</script>
+
+<div id="container" class="container">
+	<div class="contents">
+		<div class="inner">
+			<div class="apply_form_wrap">
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">지원 사항 타입</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 대학원 구분 기본 모양 라디오</p>
+							<p class="before"><span class="info_txt">주의하세요!</span></p>
+							<div class="chk_rdo_wrap">
+								<span class="chk_rdo1 pc3 tb3 mo2">
+									<input type="radio" name="chk_rdo1" id="chk_rdo1_01"><label for="chk_rdo1_01">ABC 대학원</label>
+								</span>
+								<span class="chk_rdo1 pc3 tb3 mo2">
+									<input type="radio" name="chk_rdo1" id="chk_rdo1_02"><label for="chk_rdo1_02">ABC 대학원</label>
+								</span>
+								<span class="chk_rdo1 pc3 tb3 mo2">
+									<input type="radio" name="chk_rdo1" id="chk_rdo1_03" checked><label for="chk_rdo1_03">ABCABCABCABCABCABCABCABC 대학원</label>
+								</span>
+								<span class="chk_rdo1 pc3 tb3 mo2">
+									<input type="radio" name="chk_rdo1" id="chk_rdo1_04" disabled><label for="chk_rdo1_04">ABCD 대학원</label>
+								</span>
+								<span class="chk_rdo1 pc3 tb3 mo2">
+									<input type="radio" name="chk_rdo1" id="chk_rdo1_05"><label for="chk_rdo1_05">ABCD 대학원</label>
+								</span>
+								<span class="chk_rdo1 pc3 tb3 mo2">
+									<input type="radio" name="chk_rdo1" id="chk_rdo1_06"><label for="chk_rdo1_06">ABCD 대학원</label>
+								</span>
+								<span class="chk_rdo1 pc3 tb3 mo2">
+									<input type="radio" name="chk_rdo1" id="chk_rdo1_07"><label for="chk_rdo1_07">ABCD 대학원</label>
+								</span>
+								<span class="chk_rdo1 pc3 tb3 mo2">
+									<input type="radio" name="chk_rdo1" id="chk_rdo1_08"><label for="chk_rdo1_08">ABCD 대학원</label>
+								</span>
+							</div> <!-- // chk_rdo_wrap -->
+							<p class="after"><span class="bullet_txt">주의하세요!</span></p>
+						</div> <!-- // con_form -->
+
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 기본 모양 체크박스</p>
+							<p class="sub_tit">subtitle</p>
+							<p class="before"><span class="bullet_txt">주의하세요!</span></p>
+							<div class="chk_chk_wrap">
+								<span class="chk_chk1 pc3 tb3 mo1">
+									<input type="checkbox" name="chk_chk1" id="chk_chk1_01"><label for="chk_chk1_01">ABC 대학원</label>
+								</span>
+								<span class="chk_chk1 pc3 tb3 mo1">
+									<input type="checkbox" name="chk_chk1" id="chk_chk1_02" checked><label for="chk_chk1_02">ABC 대학원 ABC 대학원</label>
+								</span>
+								<span class="chk_chk1 pc3 tb3 mo1">
+									<input type="checkbox" name="chk_chk1" id="chk_chk1_03" disabled><label for="chk_chk1_03">ABCD 대학원</label>
+								</span>
+								<span class="chk_chk1 pc3 tb3 mo1">
+									<input type="checkbox" name="chk_chk1" id="chk_chk1_04" checked><label for="chk_chk1_04">ABC 대학원</label>
+								</span>
+								<span class="chk_chk1 pc3 tb3 mo1">
+									<input type="checkbox" name="chk_chk1" id="chk_chk1_05" disabled><label for="chk_chk1_05">ABCD 대학원</label>
+								</span>
+							</div> <!-- // chk_chk_wrap --> 
+							<p class="error_msg">error message</p>							
+							<p class="before"><span class="info_txt">주의하세요!</span></p>
+						</div> <!-- // con_form -->
+
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 버튼 모양 라디오버튼 </p>
+							<p class="sub_tit">subtitle</p>
+							<p class="before"><span class="bullet_txt">일반귀화자는 글로벌인재특별전형II(전교육과정해외이수자) 지원자격을 인정하지 않습니다.<br/>귀화허가를 받은 결혼 이주민의 경우 관련 증빙서류를 제출해 주십시오.</span></p>
+							<div class="rdo_btn_wrap">
+								<span class="rdo_btn1 pc3 tb3 mo2">
+									<input type="radio" name="rdo_btn1" id="rdo_btn1_01"><label for="rdo_btn1_01">정원내 라벨 1</label>
+								</span>
+								<span class="rdo_btn1 pc3 tb3 mo2">
+									<input type="radio" name="rdo_btn1" id="rdo_btn1_02" checked><label for="rdo_btn1_02">정원내 라벨 2</label>
+								</span>
+								<span class="rdo_btn1 pc3 tb3 mo2">
+									<input type="radio" name="rdo_btn1" id="rdo_btn1_03" disabled><label for="rdo_btn1_03">정원내 라벨 3</label>
+								</span>
+								<span class="rdo_btn1 pc3 tb3 mo2">
+									<input type="radio" name="rdo_btn1" id="rdo_btn1_04" disabled><label for="rdo_btn1_04">정원내 라벨 4</label>
+								</span>
+							</div> <!-- // chk_btn_wrap -->	   							
+							<p class="after"><span class="form_txt">[정원내전형] 수능전형, 일반전형, 실기전형 <br />[정원내전형] 특성화고교졸업자전형, 농어촌학생전형, 사회적배려자전형</span></p>
+						</div> <!-- // con_form -->
+
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 버튼 모양 체크버튼 </p>
+							<p class="sub_tit">subtitle</p>
+							<p class="before"><span class="bullet_txt">일반귀화자는 글로벌인재특별전형II(전교육과정해외이수자) 지원자격을 인정하지 않습니다.<br/>귀화허가를 받은 결혼 이주민의 경우 관련 증빙서류를 제출해 주십시오.</span></p>
+							<div class="chk_btn_wrap">
+								<span class="chk_btn1 pc3 tb3 mo2">
+									<input type="checkbox" name="chk_btn1" id="chk_btn1_01"><label for="chk_btn1_01">정원내 라벨 1</label>
+								</span>
+								<span class="chk_btn1 pc3 tb3 mo2">
+									<input type="checkbox" name="chk_btn1" id="chk_btn1_02" checked><label for="chk_btn1_02">정원내 라벨 2</label>
+								</span>
+								<span class="chk_btn1 pc3 tb3 mo2">
+									<input type="checkbox" name="chk_btn1" id="chk_btn1_03" disabled><label for="chk_btn1_03">정원내 라벨 3</label>
+								</span>
+								<span class="chk_btn1 pc3 tb3 mo2">
+									<input type="checkbox" name="chk_btn1" id="chk_btn1_04" disabled><label for="chk_btn1_04">정원내 라벨 4</label>
+								</span>
+							</div> <!-- // chk_btn_wrap -->	   							
+							<p class="after"><span class="form_txt">[정원내전형] 수능전형, 일반전형, 실기전형 <br />[정원내전형] 특성화고교졸업자전형, 농어촌학생전형, 사회적배려자전형</span></p>
+						</div> <!-- // con_form -->
+
+						<div class="con_form wrap_mm">
+							<p class="tit">title 결혼 이주민 여부</p>
+							<div class="gray_chk_box">
+								<div class="txt_area">
+									<p class="txt01">귀화허가를 받은 결혼 이주민의 경우 체크해 주세요.</p>
+									<p class="txt02">Please check if you are a marriage migrant naturalized as Korean.</p>
+								</div>
+								<div class="chk_consent_wrap">
+									<span class="chk_rdo1"><input type="radio" id="consent_Y" name="id_consent"><label for="consent_Y">동의 <span class="br2">(Consent)</span></label></span>
+									<span class="chk_rdo1"><input type="radio" id="consent_N" name="id_consent"><label for="consent_N">비동의 <span class="br2">(Do not consent)</span></label></span>
+								</div>
+							</div>
+							<div class="gray_chk_box">
+								<div class="txt_area">
+									<p class="txt01">귀화허가를 받은 결혼 이주민의 경우 체크해 주세요.</p>
+									<p class="txt02">Please check if you are a marriage migrant naturalized as Korean.</p>
+								</div>
+								<span class="chk">
+									<input type="checkbox" id="chk_Y"><label for="chk_Y">해당함</label>
+								</span>								
+							</div>
+							<p class="after"><span class="bullet_txt">일반귀화자는 글로벌인재특별전형II(전교육과정해외이수자) 지원자격을 인정하지 않습니다.<br/>귀화허가를 받은 결혼 이주민의 경우 관련 증빙서류를 제출해 주십시오.</span></p>
+						</div> <!-- // con_form -->
+
+
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->
+
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">대학교 관련 사항</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 학사학위정보</p>	
+							<div class="wrap_calendar"> 
+								<input type="text" class="input_date datepicker" placeholder="입력하세요.">
+								<span class="dash">-</span>
+								<input type="text" class="input_date datepicker" placeholder="입력하세요.">
+							</div>
+						</div> <!-- // con_form -->
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 대학교 검색 입력후 화면</p>	
+							<div class="wrap_search"> 
+								<input type="text" class="input_txt">
+								<button class="btn_search">검색</button>
+							</div>
+						</div> <!-- // con_form -->
+						<div class="con_form">
+							<p class="tit">title 단과대학 default</p>	
+							<div class="wrap_input_txt"> 
+								<input type="text" class="input_txt error" placeholder="입력하세요.">
+								<button class="btn_clear">삭제</button>
+							</div>
+							<p class="error_msg2">에러메세지 focus on 일 때, 박스테두리</p>
+						</div> <!-- // con_form -->
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 학과 focus</p>
+							<p class="sub_tit">subtilte</p>
+							<div class="wrap_input_txt"> 
+								<input type="text" class="input_txt" placeholder="입력하세요.">
+								<button class="btn_clear">삭제</button>
+							</div>
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box menu02-->
+
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">지원자 인적 사항</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 지원자성명</p>	
+							<div class="wrap_name">
+								<div class="wrap_input_txt">
+									<input type="text" class="input_txt">
+									<button class="btn_clear">삭제</button>
+								</div>
+								<button class="btn_form btn" onclick="$('.pop_name').show();"><span>수정</span></button>
+							</div>
+							<p class="after"><span class="info_txt">이름을 잘못 입력했거나 개명으로 이름이 달라진 경우 주민등록초본의 이름과 동일하게 입력하여야 합니다. <span class="pc_br"></span>(주민등록초본 별도 제출)</span></p>
+						</div> <!-- // con_form -->
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 지원자성명(한자)</p>	
+							<div class="wrap_name2">
+								<div class="wrap_input_txt">
+									<input type="text" class="input_txt">
+									<button class="btn_clear">삭제</button>
+								</div>
+								<button class="btn_form btn" onclick="$('.name_transfer').show();"><span>한자변환방법</span></button>
+								<p class="after type02"><span class="info_txt">before 한자가 없는 경우는 성만 한자로 입력하세요. <span class="pc_br"></span>(예 : 洪길동)</span></p>
+							</div>
+						</div> <!-- // con_form -->
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 성명(영문)</p>	
+							<div class="wrap_name3">
+								<div class="half">
+									<p class="sub_tit">subtitle 성</p>
+									<div class="wrap_input_txt">
+										<input type="text" class="input_txt" placeholder="성을 입력하세요.">
+										<button class="btn_clear">삭제</button>
+									</div>
+								</div>
+								<div class="half">
+									<p class="sub_tit">subtitle 이름</p>
+									<div class="wrap_input_txt">
+										<input type="text" class="input_txt" placeholder="이름을 입력하세요.">
+										<button class="btn_clear">삭제</button>
+									</div>
+								</div>
+							</div>
+						</div> <!-- // con_form -->
+						<!-- 이메일 추가 -->
+						<div class="con_form">
+							<p class="tit">지원자 이메일</p>
+							<p class="sub_tit">소제목</p>	
+							<div class="wrap_email">
+								<input type="email" class="input_txt email" placeholder="이메일을 입력하세요.">		  								
+							</div>
+							<p class="after"><span class="info_txt">after 영역문구</span></p>
+						</div> <!-- // con_form -->
+						<div class="con_form">
+							<p class="tit">지원자 이메일</p>
+							<p class="sub_tit">소제목</p>	
+							<div class="wrap_email">
+								<input type="text" class="input_txt mail01" placeholder="이메일을 입력하세요.">
+								<span class="dash">@</span>
+								<div class="selectBox mail02">
+									<button class="nowSelect"><span class="now">선택</span></button>
+									<div class="selectList" id="selectList">
+										<span class="ft">선택</span>
+										<ul class="list">
+											<li class="ot"><input type="radio" name="selectOption_mail" id="option01" /><label for="option01">선택1</label></li>
+											<li class="ot"><input type="radio" name="selectOption_mail" id="option02" /><label for="option02">선택2</label></li>
+											<li class="ot"><input type="radio" name="selectOption_mail" id="option03" /><label for="option03">선택3</label></li>
+											<li class="ot"><input type="radio" name="selectOption_mail" id="option04" /><label for="option04">선택4</li>
+											<li class="ot input"><input type="radio" name="selectOption_mail" id="option05" /><label for="option05">직접입력</label></li>
+										</ul>
+									</div>
+								</div>
+								<input type="text" class="input_txt mail03" style="display:none;"/>
+							</div>
+							<p class="after"><span class="info_txt">after 영역문구</span></p>
+						</div> <!-- // con_form -->
+						<div class="con_form">
+							<p class="tit">title 주민등록번호</p>	
+							<div class="wrap_rrn">
+								<input type="text" class="input_txt">
+								<span class="dash">-</span>
+								<input type="password" class="input_txt">
+							</div>
+							<p class="sub_tit type02">subtitle 성</p>	
+							<div class="wrap_gender">
+								<span class="chk_rdo_g">
+									<input type="radio" name="chk_gender01" id="chk_gender01_01"><label for="chk_gender01_01">남자</label>
+								</span>
+								<span class="chk_rdo_g">
+									<input type="radio" name="chk_gender01" id="chk_gender01_02"><label for="chk_gender01_02">여자</label>
+								</span>
+								<button class="btn btn_form"><span>주민번호확인</span></button>
+							</div>
+							<p class="after"><span class="info_txt">지원자의 주민등록번호가 정확한지 다시 한 번 확인하시기 바랍니다.</span></p>
+						</div> <!-- // con_form -->
+						<!-- 1번 -->
+						<div class="con_form">
+							<p class="tit">title 주민등록번호</p>	
+							<div class="wrap_rrn">
+								<input type="text" class="input_txt">
+								<span class="dash">-</span>
+								<input type="password" class="input_txt">
+							</div>
+						</div> <!-- // con_form -->
+						<!-- 2번 -->
+						<div class="con_form">
+							<p class="tit">title 주민등록번호</p>	
+							<div class="wrap_rrn">
+								<div class="wrap_in">
+									<input type="text" class="input_txt">
+									<span class="dash">-</span>
+									<input type="password" class="input_txt">
+								</div>
+								<button class="btn btn_form"><span>주민번호확인</span></button>
+							</div>
+						</div> <!-- // con_form -->
+						<!-- 3번 -->
+						<div class="con_form">
+							<p class="tit">title 주민등록번호</p>	
+							<div class="wrap_rrn">
+								<input type="text" class="input_txt">
+								<span class="dash">-</span>
+								<input type="password" class="input_txt">
+							</div>
+							<p class="sub_tit type02">subtitle 성</p>	
+							<div class="wrap_gender">
+								<input type="text" class="input_txt gender"/>
+							</div>
+						</div> <!-- // con_form -->
+						<!-- 4번 -->
+						<div class="con_form">
+							<p class="tit">title 주민등록번호</p>	
+							<div class="wrap_rrn">
+								<div class="wrap_in">
+									<input type="text" class="input_txt">
+									<span class="dash">-</span>
+									<input type="password" class="input_txt">
+								</div>
+								<button class="btn btn_form"><span>주민번호확인</span></button>
+							</div>
+							<p class="sub_tit type02">subtitle 성</p>	
+							<div class="wrap_gender">
+								<input type="text" class="input_txt gender"/>
+							</div>
+						</div> <!-- // con_form -->
+						<!-- 5번 -->
+						<div class="con_form">
+							<p class="tit">title 성별</p>	
+							<div class="wrap_gender">
+								<span class="chk_rdo_g">
+									<input type="radio" name="chk_gender02" id="chk_gender02_01"><label for="chk_gender02_01">남자</label>
+								</span>
+								<span class="chk_rdo_g">
+									<input type="radio" name="chk_gender02" id="chk_gender02_02"><label for="chk_gender02_02">여자</label>
+								</span>
+							</div>
+						</div> <!-- // con_form -->
+						<!-- 6번 -->
+						<div class="con_form">
+							<p class="tit">title 생년월일</p>	
+							<div class="wrap_input_txt">
+								<input type="text" class="input_txt birth">
+								<button class="btn_clear"></button>
+							</div>
+							<p class="sub_tit type02">subtitle 성</p>	
+							<div class="wrap_gender">
+								<span class="chk_rdo_g">
+									<input type="radio" name="chk_gender03" id="chk_gender03_01"><label for="chk_gender03_01">남자</label>
+								</span>
+								<span class="chk_rdo_g">
+									<input type="radio" name="chk_gender03" id="chk_gender03_02"><label for="chk_gender03_02">여자</label>
+								</span>
+							</div>
+						</div> <!-- // con_form -->
+						<!-- 7번 -->
+						<div class="con_form">
+							<p class="tit">title 생년월일</p>	
+							<div class="wrap_input_txt">
+								<input type="text" class="input_txt birth">
+								<button class="btn_clear"></button>
+							</div>
+						</div> <!-- // con_form -->
+
+						<div class="con_form">
+							<p class="tit">title 출신고등학교</p>	
+							<p class="sub_tit">subtitle 졸업일자</p>
+							<div class="wrap_grade">
+								<input type="text" class="input_txt w01" />
+								<div class="selectBox w02">
+									<button class="nowSelect"><span class="now">선택</span></button>
+									<div class="selectList" id="selectList">
+										<span class="ft">선택</span>
+										<ul class="list">
+											<li class="ot"><input type="radio" name="selectOption_highSc" id="option01" /><label for="option01">선택</label></li>
+											<li class="ot"><input type="radio" name="selectOption_highSc" id="option02" /><label for="option02">졸업</label></li>
+											<li class="ot"><input type="radio" name="selectOption_highSc" id="option03" /><label for="option03">졸업예정</label></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<p class="sub_tit type02">subtitle 졸업일자</p>
+							<div class="wrap_grade">
+								<input type="text" class="input_txt w01 " />
+								<input type="text" class="input_txt w02" /> 								
+							</div>
+							<p class="sub_tit type02">subtitle 학교명</p>
+							<div class="wrap_gogyo">
+								<div class="wrap_search"> 
+									<input type="text" class="input_txt w01">
+									<button class="btn_search">검색</button>
+								</div>
+								<input type="text" class="input_txt w02" readonly/>
+							</div>
+							<p class="sub_tit type02">subtitle 전화</p>
+							<input type="text" class="input_txt gogyo_number " />
+							<p class="sub_tit type02">subtitle FAX</p>
+							<input type="text" class="input_txt gogyo_fax" />
+							<p class="sub_tit type02">subtitle 주소</p>
+							<div class="wrap_gogyoAddr">
+								<input type="text" class="input_txt addr1">	 
+								<input type="text" class="input_txt addr2">				   								
+							</div>							
+						</div> <!-- // con_form -->
+
+						<div class="con_form">
+							<p class="tit">title 국적</p>	
+							<div class="wrap_input_txt">
+								<input type="text" class="input_txt">
+								<button class="btn_clear"></button>
+							</div>
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->
+
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">지원자 연락처</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 지원자 전화번호 default</p>	
+							<div class="wrap_tel wrap_input_txt">
+								<input type="tel" class="input_txt input_tel" placeholder="전화번호 입력">
+								<button class="btn_clear"></button>
+							</div>
+						</div> <!-- // con_form -->
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 지원자 default + 전화번호 없음</p>	
+							<div class="wrap_tel2 wrap_input_txt">
+								<input type="tel" class="input_txt input_tel" placeholder="전화번호 입력">
+								<button class="btn_form">전화번호 없음</button>
+							</div>
+						</div> <!-- // con_form -->
+						<!-- 외국인전화번호  -->
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 외국인 전화번호</p>
+							<p class="sub_tit">subtitle</p>
+							<div class="wrap_foreign_tel">
+								<input type="tel" class="input_txt w01">
+								<span class="dash">-</span>
+								<input type="tel" class="input_txt w02" placeholder="전화번호 입력">
+							</div>
+						</div> <!-- // con_form -->
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 지원자 주소</p>	
+							<p class="info_txt">before 영역 문구</p>
+							<p class="sub_tit type02">지원자 주소 소제목</p>
+							<div class="wrap_addr">
+								<div class="wrap_search">
+									<input type="text" class="input_txt addr1">
+									<button class="btn_search" onclick="$('.pop_addr2').show();"></button>
+								</div>
+								<div class="wrap_input_txt">
+									<input type="text" class="input_txt addr2">
+									<button class="btn_clear"></button>			
+								</div>
+								<button class="btn btn_form2" onclick="$('.pop_addr1').show();"><span>최근 주소 불러오기</span></button>
+							</div>						
+							<p class="after"><span class="bullet_txt">after 영역문구</span></p>
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->
+
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">대학교 관련 사항</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">
+							<div class="info_box">
+							<p><span class="bullet">※</span> 출신대학 및 학과, 전공명의 경우 증명서와 동일하게 기재하시기 바랍니다.</p>			
+						</div>
+						</div> <!-- // con_form -->
+						
+						<div class="con_form">
+							<p class="tit type02">
+								<span class="star">*</span>title 학사학위정보
+								<span class="info_tit">before 코멘트 영역</span>
+							</p>	
+							<p class="before"><span class="bullet_txt2">before코멘트 영역 이름, 주민등록번호(외국인 전형 등의 경우 : 외국인등록번호 또는 여권번호), 주소, 전화번호, 휴대전화번호, 이메일, 추가 연락처, 학교정보(최종학력구분, 재학/출신 대학교 (대학원)명, 졸업(예정)연도)</span></p>
+							<p class="sub_tit type02">재학기간</p>
+							<div class="wrap_degree">
+								<input type="text" class="input_txt">
+								<span class="dash">-</span>
+								<input type="text" class="input_txt">
+							</div>
+							<p class="sub_tit type02">대학교</p>
+							<div class="wrap_degree2 wrap_input_txt">
+								<input type="text" class="input_txt">
+								<button class="btn_clear"></button>
+							</div>
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->
+
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">사진 업로드</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>사진 파일 업로드 유의사항</p>	
+							<div class="wrap_upload_photo">
+								<div class="photo_box">
+									<div class="photo_area">
+										<div class="photo">
+											<!-- 사용자 이미지 -->
+											<img src="common/main_img/mobile/user.png" class="user_photo" alt="" />								
+										</div>
+										<div class="photo_guide">	
+											<img src="common/main_img/mobile/icon_user.png" alt="사진 3x4" />
+											<p>사 진<br />( 3 X 4cm )</p>
+										</div>	
+									</div>
+									<div class="text_area">
+										<p>원서접수 전 3개월 이내에 촬영된 탈모 상반신 사진으로 어깨까지 나온 반명함판 사진이어야 합니다. <br />	(배경사진, 옆모습, 선글라스 착용 등의 사진은 사용할 수 없습니다.)</p>
+										<p>사진 파일은 jpg 또는 gif 규격 이어야 합니다. (예 : 사진.jpg)</p>
+										<p>사진은 스캔한 JPG형식의 파일을 사용해야 하며, 배경이 있는 사진, 스냅사진, 파일이 너무 작아서 식별이 곤란한 사진은 사용할 수 없습니다.</p>
+									</div>
+								</div>
+								<div class="photo_btn">
+									<button class="btn btn_reload"><span>최근 사진 불러오기</span></button>
+									<button class="btn btn_load" onclick="$('.edit_photo').show();"><span>사진 편집 업로드</span></button>
+									<button class="btn btn_load2" onclick="$('.baro_photo').show()"><span>사진 바로 업로드</span></button>
+									<button class="btn btn_delete"><span>사진 삭제</span></button>
+								</div>	
+							</div>
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->
+			
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">계좌정보</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 계좌정보</p>	
+							<p class="before"><span class="bullet_txt2">before코멘트 영역</span></p>
+							<p class="sub_tit type02">subtitle 계좌번호</p>
+							<div class="wrap_accout">
+								<input type="text" class="input_txt" placeholder="숫자만 입력하세요">
+							</div>
+							<p class="error_msg2">error message</p>
+							<p class="sub_tit type02">subtitle 은행명</p>
+							<!-- SelectBox -->
+							<p>SelectBox</p>
+							<div class="selectBox">
+								<button class="nowSelect"><span class="now">선택하세요.</span></button>
+								<div class="selectList" id="selectList">
+									<span class="ft">선택하세요.</span>
+									<ul class="list">
+										<li class="ot"><input type="radio" name="selectOption" id="option01" checked /><label for="option01">선택1</label></li>
+										<li class="ot"><input type="radio" name="selectOption" id="option02" disabled /><label for="option02">선택2</label></li>
+										<li class="ot"><input type="radio" name="selectOption" id="option03" /><label for="option03">선택3</label></li>
+										<li class="ot"><input type="radio" name="selectOption" id="option04" /><label for="option04">선택4</label></li>
+										<li class="ot"><input type="radio" name="selectOption" id="option05" /><label for="option05">선택5</label></li>
+									</ul>
+								</div>
+							</div>
+							<!-- // SelectBox -->
+							<div class="wrap_select_bank selectBox">
+								<button class="nowSelect"><span class="now">은행명 직접 선택</span></button>
+								<div class="selectList">
+									<span class="ft">은행명 직접 선택</span>
+									<ul class="list">									
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">SC은행</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">경남은행</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">광주은행</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">KB국민은행</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">기업은행</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">농협은행</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">대구은행</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">부산은행</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">산업은행</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">새마을금고중앙회</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">수협중앙회</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">신한은행</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">신협중앙회</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">우리은행</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">우체국</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">전북은행</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">제주은행</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">지역 농&middot;축협</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">KEB 하나은행</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">한국씨티은행</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">케이뱅크</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">카카오뱅크</label></li>
+										<li class="ot"><input type="radio" name="selectOption_bank" id="option01" /><label for="option01">토스뱅크</label></li>
+									</div>
+								</ul>
+							</div>
+							<div class="wrap_select_bank02">
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_sc.png" class="logo" alt="SC은행" /><span class="name">SC은행</span></button>
+								<button class="sl_bank select"><img src="common/main_img/mobile/bank/bank_kn.png" class="logo" alt="경남은행" /><span class="name">경남은행</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_gj.png" class="logo" alt="광주은행" /><span class="name">광주은행</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_kb.png" class="logo" alt="국민은행" /><span class="name">KB 국민은행</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_ibk.png" class="logo" alt="기업은행" /><span class="name">기업은행</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_nh.png" class="logo" alt="농협은행" /><span class="name">농협은행</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_dgb.png" class="logo" alt="대구은행" /><span class="name">대구은행</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_bs.png" class="logo" alt="부산은행" /><span class="name">부산은행</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_kdb.png" class="logo" alt="산업은행" /><span class="name">산업은행</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_mg.png" class="logo" alt="새마을금고중앙회" /><span class="name">새마을금고중앙회</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_sh.png" class="logo" alt="수협중앙회" /><span class="name">수협중앙회</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_shinhan.png" class="logo" alt="신한은행" /><span class="name">신한은행</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_cu.png" class="logo" alt="신협중앙회" /><span class="name">신협중앙회</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_woori.png" class="logo" alt="우리은행" /><span class="name">우리은행</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_epost.png" class="logo" alt="우체국" /><span class="name">우체국</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_jb.png" class="logo" alt="전북은행" /><span class="name">전북은행</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_jeju.png" class="logo" alt="제주은행" /><span class="name">제주은행</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_nh2.png" class="logo" alt="지역농축협" /><span class="name">지역 농&middot;축협</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_keb.png" class="logo" alt="KEB하나은행" /><span class="name">KEB하나은행</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_citi.png" class="logo" alt="한국씨티은행" /><span class="name">한국씨티은행</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_kbank.png" class="logo" alt="케이뱅크" /><span class="name">케이뱅크</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_kakao.png" class="logo" alt="카카오뱅크" /><span class="name">카카오뱅크</span></button>
+								<button class="sl_bank"><img src="common/main_img/mobile/bank/bank_toss.png" class="logo" alt="토스뱅크" /><span class="name">토스뱅크</span></button>
+							</div>
+							<p class="error_msg2">error message</p>
+							<p class="sub_tit type02">subtitle 예금주</p>
+							<div class="wrap_holder">
+								<input type="text" class="input_txt" placeholder="한글로 입력하세요">
+							</div>
+							<p class="error_msg2">error message</p>
+							<div class="wrap_account_certify">
+								<button class="btn btn_certify"><span>계좌인증하기</span></button>
+								<div class="i_box">
+									<span class="over_i">?</span>
+									<div class="instruction_box">
+										<span class="btn_close"><img src="common/main_img/mobile/icon_close.png" alt="닫기" /></span>
+										<dl>
+											<dt><span>계좌 인증이란?</span></dt>
+											<dd>잘못된 계좌로의 환불을 사전에 방지하기 위해 작성하신 계좌정보가 올바른지 확인하는 서비스입니다.</dd>
+											<dt><span>은행 정기 점검 시간</span></dt>
+											<dd>
+												<p class="p_txt">정기 점검 시간 : 23시 45분 ~ 00시 10분</p>
+												<p class="txt">일부 은행의 경우, 내부 사정에 따라 점검시간이 더 걸릴 수 있습니다.</p>
+												<p class="p_txt type02">정기 점검 시간이 다른 금융사</p>
+												<p class="b_txt">농협은행 : 23시 45분 ~ 00시 30분</p>
+												<p class="b_txt">새마을금고 : 23시 30분 ~ 00시 30분</p>
+												<p class="b_txt">우체국 : 03시 50분 ~ 05시 00분</p>
+											</dd>
+										</dl>
+									</div>
+								</div>
+							</div>
+							<p class="after"><span class="bullet_txt">after 영역문구</span></p>
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->
+
+
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">경력사항</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">						
+							<div class="wrap_experience">	
+								<div class="experience_box">
+									<p class="tit"><span class="star">*</span>title 경력 사항 1(세로형)<button class="btn btn_deleteAll"><span>전체삭제</span></button></p>	
+									<p class="sub_tit type02">subtitle 시작기간</p>
+									<input type="text" class="input_txt" placeholder="YYYYMM (년월 입력)">
+									<p class="error_msg2">error message</p>
+									<p class="sub_tit type02">subtitle 종료기간</p>
+									<input type="text" class="input_txt" placeholder="YYYYMM (년월 입력)">
+								</div>
+
+								<div class="experience_box">
+									<p class="tit"><span class="star">*</span>title 경력 사항 2(세로형)<button class="btn btn_deleteAll"><span>전체삭제</span></button></p>	
+									<p class="sub_tit type02">subtitle 시작기간</p>
+									<input type="text" class="input_txt" placeholder="YYYYMM (년월 입력)">
+									<p class="error_msg2">error message</p>
+									<p class="sub_tit type02">subtitle 종료기간</p>
+									<input type="text" class="input_txt" placeholder="YYYYMM (년월 입력)">
+								</div>
+							
+								<div class="txt_btn_area">
+									<p class="txt">추가 삭제 설명 부분 추가 버튼을 클릭하여 폼을 추가하거나, 삭제 버튼을 클릭하여 폼을 삭제합니다.</p>
+									<div class="btn_area">
+										<button class="btn btn_add"><span>추가</span></button>
+										<button class="btn btn_delete"><span>삭제</span></button>
+									</div>
+								</div>
+							</div>					
+
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->
+
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">경력사항</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">						
+							<div class="wrap_experience">	
+								<p class="tit"><span class="star">*</span>title 경력 사항 1(가로형)<button class="btn btn_deleteAll"><span>전체삭제</span></button></p>	
+								<div class="experience_box">
+									<div class="row">
+										<div class="box">
+											<label for="" class="tit_label">subtitle 셀렉트 박스</label>
+											<div class="wrap_select">
+												<div class="selectBox">
+													<button class="nowSelect"><span class="now">선택</span></button>
+													<div class="selectList" id="selectList">
+														<span class="ft">선택</span>
+														<ul class="list">
+															<li class="ot"><input type="radio" name="selectOption_exp" id="option01" checked /><label for="option01">선택1</label></li>
+															<li class="ot"><input type="radio" name="selectOption_exp" id="option02" disabled /><label for="option02">선택2</label></li>
+															<li class="ot"><input type="radio" name="selectOption_exp" id="option03" /><label for="option03">선택3</label></li>
+															<li class="ot"><input type="radio" name="selectOption_exp" id="option04" /><label for="option04">선택4</label></li>
+															<li class="ot"><input type="radio" name="selectOption_exp" id="option05" /><label for="option05">선택5</label></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="box">
+											<label for="" class="tit_label">subtitle 체크박스</label>
+											<div class="chk_chk_wrap">
+												<span class="chk_chk1 "><input type="checkbox" name="" id="chk1" /><label for="chk1">체크1</label></span>
+												<span class="chk_chk1 "><input type="checkbox" name="" id="chk2" /><label for="chk2">체크2</label></span>
+											</div>
+										</div>
+										<div class="box">
+											<label for="" class="tit_label">subtitle 라디오 버튼</label>
+											<div class="chk_rdo_wrap">
+												<span class="chk_rdo1">
+													<input type="radio" name="rdo_exp" id="rdo1"><label for="rdo1">ABC</label>
+												</span>
+												<span class="chk_rdo1">
+													<input type="radio" name="rdo_exp" id="rdo2"><label for="rdo2">ABC</label>
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="box">
+											<label for="" class="tit_label">subtitle 주소</label>
+											<div class="wrap_search"> 
+												<input type="text" class="input_txt">
+												<button class="btn_search">검색</button>
+											</div>
+										</div>
+										<div class="box">
+											<label for="" class="tit_label">subtitle 비고</label>
+											<input type="text" class="input_txt" placeholder="비고">
+										</div>
+										<div class="box">
+											<label for="" class="tit_label">subtitle 비고</label>
+											<input type="text" class="input_txt" placeholder="비고">
+										</div>
+									</div>
+								</div>
+
+								<div class="experience_box">
+									<p class="tit"><span class="star">*</span>title 경력 사항 2(가로형)<button class="btn btn_deleteAll"><span>전체삭제</span></button></p>	
+									<div class="row">
+										<div class="box">
+											<label for="" class="tit_label">subtitle 시작기간</label>
+											<input type="text" class="input_txt" placeholder="YYYYMM (년월 입력)">
+										</div>
+										<div class="box">
+											<label for="" class="tit_label">subtitle 종료기간</label>
+											<input type="text" class="input_txt" placeholder="YYYYMM (년월 입력)">
+										</div>
+										<div class="box">
+											<label for="" class="tit_label">subtitle 기관명</label>
+											<input type="text" class="input_txt" placeholder="기관명">
+										</div>
+									</div>
+									<div class="row">
+										<div class="box w2">
+											<label for="" class="tit_label">subtitle 주소</label>
+											<input type="text" class="input_txt" placeholder="주소">
+										</div>
+										<div class="box">
+											<label for="" class="tit_label">subtitle 비고</label>
+											<input type="text" class="input_txt" placeholder="비고">
+										</div>
+									</div>
+									<p class="error_msg2">error message</p>
+								</div>
+							
+								<div class="txt_btn_area">
+									<p class="txt">추가 삭제 설명 부분 한줄일때</p>
+									<div class="btn_area">
+										<button class="btn btn_add"><span>추가</span></button>
+										<button class="btn btn_delete"><span>삭제</span></button>
+									</div>
+								</div>
+							</div>					
+
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->
+
+			
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">파일업로드</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 00전형 파일 업로드</p>						
+							<div class="wrap_fileupload">
+								<p class="sub_tit"><span class="star">*</span>subtitle 자기소개서</p>
+								<p class="before"><span class="info_txt">before 항목 코멘트</span></p>
+								<div class="file_box">
+									<div class="file_up">
+										<form>
+											<input id="file-upload" name="file_upload" type="file" class="file_upload" style="display:none;">	
+											<div class="file_info">
+												<span class="file_name"><span class="txt">자기소개서 추가</span><img src="common/main_img/mobile/icon_plus.png" alt="자기소개서 추가" /></span>
+											</div>
+											<label for="file-upload" class=" btn_file"></label>
+										</form>
+									</div>
+								</div>
+								<div class="fileupload_info">
+									<p>용량 제한 코멘트</p>
+									<p>파일 종류 제한 코멘트</p>
+								</div>
+							</div>
+							
+							<div class="wrap_fileupload">
+								<p class="sub_tit"><span class="star">*</span>subtitle 학업계획서</p>
+								<p class="before"><span class="info_txt">before 항목 코멘트</span></p>
+								<div class="file_box type2">
+									<div class="file_up2">
+										<form>
+											<input id="file-upload2" name="file_upload2" type="file" class="file_upload2" style="display:none;">	
+											<div class="file_info">
+												<span class="file_name"></span>
+											</div>
+											<label for="file-upload2" class=" btn_file2"></label>
+										</form>
+									</div>
+									<button class="btn btn_check"><span>파일 확인</span></button>
+									<button class="btn btn_delete"><span>삭제</span></button>
+								</div>
+								<div class="fileupload_info">
+									<p>용량 제한 코멘트</p>
+									<p>파일 종류 제한 코멘트</p>
+								</div>
+							</div>
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->			
+
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">자기소개서</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 자기소개서</p>
+							<div class="wrap_self_itd">
+								<p class="txt">입력Byte수 : <span class="word_num">0</span> / 줄바꿈, 띄어쓰기 포함 300Byte 이내</p>
+								<div class="textarea_box">
+									<textarea name="" id="word_check" class="textarea" cols="30" rows="10" maxlength="300" style="resize:none; overflow:auto;"></textarea>
+								</div>
+							</div>
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->
+
+				<p class="bt_txt"><span class="txt_pink">*</span>는 <span class="txt_pink">필수입력항목</span>으로 모두 입력하셔야 <span class="txt_pink">원서저장이 가능</span>합니다.<br /><span class="txt_pink">저장하기버튼</span>을 누르시면 <span class="txt_pink">작성한 원서가 저장</span>되며, 결제 전에는 <span class="txt_pink">원서수정이 가능</span>합니다.</p>	
+
+				<div class="btn_area_bt">
+					<a href="#" class="btn full"><span>이동버튼 바로가기</span></a>
+				</div>
+			</div>  <!-- // apply_form_wrap -->		 
+		</div>  <!-- // inner -->
+	</div> <!-- // contents -->          
+</div> <!-- // container -->
+
+<!-- alert msg -->
+<div class="popup_bg" style="display:none; z-index:99999">
+	<div class="popup2 alert">
+		<div class="txt_box al">정시모집에&nbsp;등록한&nbsp;경우&nbsp;추가모집에&nbsp;지원할&nbsp;수&nbsp;없습니다.</div>
+		<div class="btn_area">
+			<button class="btn btn_confirm" onclick="$(this).parent().parent().parent().hide();"><span>확인</span></button>
+		</div>		
+	</div>
+</div>
+
+<!-- alert msg -->
+<div class="popup_bg" style="display:none; z-index:99999">
+	<div class="popup2 confirm">
+		<div class="txt_box">Confirm MSG</div>
+		<div class="btn_area">
+			<button class="btn btn_cancle half"><span>취소</span></button>
+			<button class="btn btn_confirm half" onclick="$(this).parent().parent().parent().hide();"><span>확인</span></button>
+		</div>		
+	</div>
+</div>
+
+<!-- alert msg -->
+<div class="popup_bg" style="display:none; z-index:99999">
+	<div class="popup2 confirm">
+		<div class="txt_box al">
+			<p class="t20 txt_bold">주의사항</p>
+			<p class="t15 mt20">고등학교 졸업(예정)자 또는 법령에 따라 이와 같은 수준 이상의 학력이 있다고 인정되는 자로서 2021. 3 ~ 2023. 9. 13(수)까지 <br />전국대회에서 입상 실적(대회 본인 출전 여부 확인 가능자)이 있는 자(3위 이내)이어야 합니다. </p>	  		
+			<p class="t15 mt25">개인종목 경기실적은 개인전(본인 1인 단독 출전 경기, 복식, 2인조 경기)만 인정합니다.</p>	
+			<p class="t14 txt_light mt20" style="padding-left:70px; text-indent:-70px;">- 단체종목 : 배구(여)[비치발리볼 포함], 컬링</p>
+			<p class="t14 txt_light" style="padding-left:70px; text-indent:-70px;">- 개인종목 : 기계체조(여), 볼링, 빙상[스피드·피겨(A조만 인정)], 사격(50m소총, 클레이), 수상스키(웨이크보드 포함), 스키(알파인), 스키<br />(스노보드·크로스컨트리)·바이애슬론, 육상, 자전거(MTB·BMX)</p>
+			<p class="t13 txt_pink mt15" style="padding-left:15px; text-indent:-15px;">※ 동호인(동호회) 및 생활체육대회 실적은 인정하지 않습니다.</p>
+			<p class="t13 txt_pink" style="padding-left:15px; text-indent:-15px;">※ 입학 후 전과(부)할 수 없습니다.</p>
+			<p class="t13 txt_pink" style="padding-left:15px; text-indent:-15px;">※ 대학수학능력시험(수능) 최저학력기준 : 없음</p>
+		</div>
+		<div class="btn_area">
+			<button class="btn btn_cancle half"><span>취소</span></button>
+			<button class="btn btn_confirm half" onclick="$(this).parent().parent().parent().hide();"><span>확인</span></button>
+		</div>		
+	</div>
+</div>
+
+<!-- popup -->
+<div class="popup_bg pop_name" style="display:none;">
+	<div class="popup">
+		<button class="btn_close" onclick="$(this).parent().parent().hide()"><img src="common/main_img/mobile/btn_pop_close.png" alt="닫기"></button>
+		<div class="pop_tit"><p class="pt">지원자 성명 수정 검색</p></div>
+		<div class="pop_con">
+			<p class="txt">문구~~~ 문구~~~ 문구~~~ 문구~~~ 문구~~~ 문구~~~ 문구~~~ </p>
+			<p class="txt txt_pink">문구~~~ 문구~~~ 문구~~~ 문구~~~ 문구~~~ 문구~~~ 문구~~~ </p>
+			<div class="pop_form">
+				<div class="con_form">
+					<label for="name_before">변경 전 성명</label>
+					<input type="text" id="name_before"/>
+				</div>
+				<div class="con_form">
+					<label for="name_after">변경 후 성명</label>
+					<input type="text" id="name_after"/>
+				</div>
+				<div class="con_form">
+					<label for="name_confirm">지원자 확인 (문구문구문구)</label>
+					<input type="text" id="name_confirm"/>
+				</div>
+			</div>
+			<div class="btn_area">
+				<button class="btn btn_gray"><span>수정</span></button>
+				<button class="btn btn_whiteGray"><span>취소</span></button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="popup_bg pop_addrEn" style="display:block; z-index:9999;">
+	<div class="popup">
+		<button class="btn_close" onclick="$(this).parent().parent().hide()"><img src="common/main_img/mobile/btn_pop_close.png" alt="닫기"></button>
+		<div class="pop_tit"><p class="pt">주소</p></div>
+		<div class="pop_con">
+			<div class="pop_form type2">
+				<div class="con_form">
+					<label for="id_country">Country</label>
+					<div class="dataList">
+						<select id="editable-select">
+							<option>America</option>
+							<option selected>Korea</option>
+							<option>Japan</option>
+							<option>Canada</option>
+						</select>
+					</div>
+				</div>
+				<div class="con_form">
+					<label for="id_addr1">City/State/Province/Region</label>
+					<input type="text" id="id_addr1"/>
+				</div>
+				<div class="con_form">
+					<label for="id_addr2">Address</label>
+					<input type="text" id="id_addr2"/>
+				</div>
+				<div class="con_form">
+					<label for="id_addr3">Apartment, suite, unit, building, floor, etc.(optional)</label>
+					<input type="text" id="id_addr3"/>
+				</div>
+			</div>
+			<div class="btn_area">
+				<button class="btn btn_gray"><span>입력</span></button>
+				<button class="btn btn_whiteGray"><span>닫기</span></button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="popup_bg pop_addr1" style="display:none;">
+	<div class="popup">
+		<button class="btn_close" onclick="$(this).parent().parent().hide()"><img src="common/main_img/mobile/btn_pop_close.png" alt="닫기"></button>
+		<div class="pop_tit"><p class="pt">주소검색 클릭하여 검색 시 팝업</p></div>
+		<div class="pop_con">
+			<p class="txt">주소검색 문구~~~ 사용했던 주소를 선택하여 불러올 수 있습니다.</p>
+			<div class="search_box">
+				<input type="text" class="input_search">
+				<button class="btn_pop_search"></button>
+			</div>
+			<button class="btn btn_addrEn btn_gray" onclick="$('.pop_addrEn').show()"><span>외국 주소 직접 입력하기</span></button>
+			<div class="result_search_box">
+				<div class="scroll_box">
+					<ul>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+					</ul>	  
+				</div> <!-- // 스크롤 부분 -->
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="popup_bg pop_addr2" style="display:none;">
+	<div class="popup">
+		<button class="btn_close" onclick="$(this).parent().parent().hide()"><img src="common/main_img/mobile/btn_pop_close.png" alt="닫기"></button>
+		<div class="pop_tit"><p class="pt">주소검색 클릭하여 검색 시 팝업</p></div>
+		<div class="pop_con">			
+			<div class="result_search_box type02">
+				<div class="scroll_box">
+					<ul>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<p class="txt01">(06654)</p>
+								<p class="txt02">서울특별시 서초구 효령로55길 23(서초동)</p>
+								<p class="txt03">7층 IT사업본부</p>
+							</a>
+						</li>
+					</ul>
+				</div> <!-- // 스크롤 부분 -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 사진 편집 업로드 -->
+<div class="popup_bg edit_photo">
+	<div class="popup">
+	<button class="btn_close" onclick="$(this).parent().parent().hide()"><img src="common/main_img/mobile/btn_pop_close.png" alt="닫기"></button>
+		<div class="pop_tit"><p class="pt">사진 편집</p></div>
+		<div class="pop_con">
+			<form name="bs_photo" id="bs_photo" style=";" method="post">
+				<input name="imgFile" id="imgFile" type="file" style="display:none" accept=".jpg, .jpeg, .gif, .png">
+				<input name="imgFileclon" id="imgFileclon" type="file" style="display:none"> 
+				<input type="hidden" name="x1" value="" id="x1">
+				<input type="hidden" name="y1" value="" id="y1">
+				<input type="hidden" name="x2" value="" id="x2">
+				<input type="hidden" name="y2" value="" id="y2">
+				<input type="hidden" name="w" value="" id="w">
+				<input type="hidden" name="h" value="" id="h">
+				<input type="hidden" name="dataURL" value="" id="dataURL">
+				<input type="hidden" name="datainfo" value="" id="datainfo">
+				<input type="hidden" name="year" value="">
+				<input type="hidden" name="ImgWidth" value="">
+				<input type="hidden" name="ImgHeight" value="">
+				<input type="hidden" name="Userid" value="">
+				<input type="hidden" name="Photo_Path" value="">
+				<input type="hidden" name="Mode" value="">
+				<input type="hidden" name="UnivInfo" value="">
+				<input type="hidden" name="Path">
+				<input type="hidden" name="FieldNm">
+				<input type="hidden" name="UniqueId" value="">
+				<input type="hidden" name="PhotoUrl" value="">
+				<input type="hidden" name="UNIV_ID" value="">
+				<input type="hidden" name="ADMIN_GRADE" value="">
+				<input type="hidden" name="cha" value="">
+				<input type="hidden" name="pk" value="">
+				<input type="hidden" name="SDOMAIN" value="">
+				<input type="hidden" name="imgsize" value="">
+				<input type="hidden" name="fileCheckMsg" id="fileCheckMsg" value="이미지 파일(jpg, png, gif, bmp, jpeg)만 등록 가능합니다."> <!-- 이미지 외 파일 불러오기시 -->
+				<input type="hidden" name="notSelectCropMsg" id="notSelectCropMsg" value="자르기 할 영역을 선택해주세요."> <!-- 자르기 영역 선택하지 않았을시 -->
+				<input type="hidden" name="notSelectImageMsg" id="notSelectImageMsg" value="등록할 사진이 없습니다."> <!-- 사진 불러오지않고 등록시  -->
+				<input type="hidden" name="imageSizeMsg" id="imageSizeMsg" value="가로-최대:600 최소:116 세로-최대:600 최소:156 사이즈만 가능합니다."> <!-- 사진 사이즈안내  -->
+				<input type="hidden" name="successMsg" id="successMsg" value="">  <!-- 업로드성공안내  -->
+			</form>
+			<div class="menu_wrap">
+				<ul>
+					<li class="menu mu1" onclick ="$('#imgFile').trigger('click');">사진 불러오기</li>
+					<li class="menu mu2" id="autoResize">자동 크기조절</li>
+					<li class="menu mu3" id="selectAtea">사진 영역선택</li>
+					<li class="menu mu4" id="cropImage">선택 자르기</li>
+				</ul>
+			</div>
+			<div class="edti_photo">
+				<div class="editor_btn" style ="z-index: 100;position: relative;">
+					<div class="btns set1">
+						<span><img src="common/main_img/mobile/photo/ed_btn1.png" id="returnImgBtn"  title="원본"/></span>
+					</div>
+					<div class="btns set2">
+						<span><img src="common/main_img/mobile/photo/ed_btn2.png"  title="확대" id="imgExpand"/></span>
+						<span><img src="common/main_img/mobile/photo/ed_btn3.png"  title="축소" id="imgMinus"/></span>
+					</div>
+					<div class="btns set3">
+						<span><img src="common/main_img/mobile/photo/ed_btn4.png"  title="좌회전" id="leftRotateBtn" /></span>
+						<span><img src="common/main_img/mobile/photo/ed_btn5.png"   title="우회전" id="rightRotateBtn" /></span>
+					</div>
+					<div class="btns set4">
+						<span><img src="common/main_img/mobile/photo/ed_btn6.png"  title="좌우반전"  id="reversal1Btn"/></span>
+						<span><img src="common/main_img/mobile/photo/ed_btn7.png"  title="상하반전" id="reversal2Btn"/></span>
+					</div>
+					<div class="btns set5">
+						<span><img src="common/main_img/mobile/photo/ed_btn8.png"  title="밝게"  id= "brightnessBtn"/></span>
+						<span><img src="common/main_img/mobile/photo/ed_btn9.png"  title="어둡게" id="darknessBtn"/></span>
+					</div>
+				</div>
+				<div class="photowrap" style ="text-align: center; vertical-align: middle; overflow: auto;">
+					<canvas id ="imgCanvas"></canvas>
+				</div>
+			</div>
+			<div class="btn_area center">
+				<a href="#" class="photosave btn" id="photoUpload"><span>사진 등록하기</span></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 사진 바로 업로드 -->
+<div class="popup_bg baro_photo">
+	<div class="popup">
+		<button class="btn_close" onclick="$(this).parent().parent().hide()"><img src="common/main_img/mobile/btn_pop_close.png" alt="닫기"></button>
+		<div class="pop_tit"><p class="pt">사진 바로 업로드</p></div>
+		<div class="pop_con">			
+			<p class="info_txt">before 문구 영역 입니다. </p>
+			<div class="upload_img">
+				<div class="img_up">
+					<form>
+						<input id="img-upload" name="img_upload" type="file" class="img_upload" style="display:none;">	
+						<div class="img_info">
+							<span class="img_name"></span>
+						</div>
+						<label for="img-upload" class=" btn_img"></label>
+					</form>
+				</div>
+				<a href="javascript:void(0);" class="img_save btn" style="cursor:pointer"><span>사진 등록하기</span></a>
+			</div>
+			<p class="bullet_txt mt25">after 문구 영역입니다.</p>
+		</div>
+	</div>
+</div>
+
+<div class="popup_bg name_transfer" style="display:none;">
+	<div class="popup">
+		<button class="btn_close" onclick="$(this).parent().parent().hide();"></button>	 		
+		<div class="pop_tit2"><p>한자 성명</p></div>
+		<div class="pop_con">
+			<div class="cont">							
+				<div class="pop_form">	
+					<div class="scroll_box">
+						<p class="t"><span class="star">*</span> 한자 성명을 입력하면 한자를 검색할 수 있습니다.</p>
+						<div class="con_form"> 						
+							<div class="name_wrap">
+								<input type="text" class="input_txt" value="有웨理가나다"/>
+								<div class="name_view_btns">
+									<button class="name_btn on"><span>유</span></button>
+									<button class="name_btn"><span>웨</span></button>
+									<button class="name_btn transfer"><span>理</span></button>
+									<button class="name_btn"><span>유</span></button>
+									<button class="name_btn"><span>웨</span></button>
+									<button class="name_btn transfer"><span>理</span></button>
+								</div>
+							</div>
+							<div class="name_result_box">
+								<ul class="name_list">
+									<li><a href="#"><a href="#"><span class="cf">有</span><p><span>있을 유</span></p></a></a></li>
+									<li><a href="#"><span class="cf">油</span><p><span>기름 유</span></p></a></a></li>
+									<li><a href="#"><span class="cf">柳</span><p><span>버들 유</span></p></a></li>
+									<li><a href="#"><span class="cf">流</span><p><span>흐를 유</span></p></a></li>
+									<li><a href="#"><span class="cf">流</span><p><span>흐를 유</span></p></a></li>
+									<li><a href="#"><span class="cf">有</span><p><span>있을 유</span></p></a></li>
+									<li><a href="#"><span class="cf">油</span><p><span>기름 유</span></p></a></li>
+									<li><a href="#"><span class="cf">柳</span><p><span>버들 유</span></p></a></li>
+									<li><a href="#"><span class="cf">流</span><p><span>흐를 유</span></p></a></li>
+									<li><a href="#"><span class="cf">流</span><p><span>흐를흐를흐를흐를흐를흐를 유</span></p></a></li>
+									<li><a href="#"><span class="cf">有</span><p><span>있을 유</span></p></a></li>
+									<li><a href="#"><span class="cf">油</span><p><span>기름 유</span></p></a></li>
+									<li><a href="#"><span class="cf">柳</span><p><span>버들 유</span></p></a></li>
+									<li><a href="#"><span class="cf">流</span><p><span>흐를 유</span></p></a></li>
+									<li><a href="#"><span class="cf">流</span><p><span>흐를 유</span></p></a></li>
+									<li><a href="#"><span class="cf">有</span><p><span>있을 유</span></p></a></li>
+									<li><a href="#"><span class="cf">油</span><p><span>기름 유</span></p></a></li>
+									<li><a href="#"><span class="cf">柳</span><p><span>버들 유</span></p></a></li>
+									<li><a href="#"><span class="cf">流</span><p><span>흐를 유</span></p></a></li>
+									<li><a href="#"><span class="cf">流</span><p><span>흐를 유</span></p></a></li>
+									<li><a href="#"><span class="cf">有</span><p><span>있을 유</span></p></a></li>
+								</ul>
+							</div>
+						</div> 	  													  
+					</div>
+				
+					<div class="bt_area">
+						<p class="info_txt">대법원 인명한자만 검색 가능합니다.</p>	  		
+
+						<div class="btn_area">
+							<button class="btn btn_red"><span>입력</span></button>
+							<button class="btn btn_whiteGray"><span>닫기</span></button>
+						</div>
+					</div>
+				</div>
+			</div>  
+		</div>
+	</div>
+</div>
+
+<!-- 로딩 -->
+<!-- <div class="loading">
+  <img src="common/main_img/mobile/loading_logo.png" alt="" />
+</div>
+ -->
+
+<div class="footer">
+	<div class="inner">
+		<ul class="footer_menu">
+			<li><a href="#">회사소개</a></li>
+			<li><a href="#">개인정보처리방침</a></li>
+			<li><a href="#">이용자약관</a></li>
+		</ul>
+		<p class="copy">Copyright&copy; <span class="txt_pink">(주)유웨이어플라이</span> <span class="br"></span>All Rights Reserved.</p>
+	</div>
+</div>	
+<!-- // footer -->
+
+</body>
+</html>

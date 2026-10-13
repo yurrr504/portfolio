@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>TA 원서접수</title>
+	<link rel="icon" href="common/main_img/mobile/favicon.png" type="image/x-icon"> 
+	<link rel="stylesheet" type="text/css" href="common/main_img/mobile/css/reset.css" />
+	<link rel="stylesheet"type="text/css"  href="common/main_img/mobile/css/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="common/main_img/mobile/css/style.css" />
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="js/init.js"></script>
+</head>
+<body>
+
+<div class="header">
+	<div class="top_menu">
+		<div class="inner clfix">
+			<a href="https://www.uwayapply.com/" target="_blank" class="home">유웨이 어플라이 홈</a>		
+			<!-- 로그인 전 -->
+			<ul class="login_menu clfix">	
+				<li><a href="#">로그인</a></li>
+				<li><a href="#">회원가입</a></li>
+				<li><a href="#">고객센터</a></li>
+				<li><a href="#">파워경쟁률</a></li>
+				<li><a href="#">English</a></li>
+			</ul>
+			<!-- 로그인 시 -->
+			<!-- <ul class="login_menu clfix">
+				<li class="user"><a href="#"><span class="user_name">유웨이</span>님</a></li>				
+				<li><a href="#">로그아웃</a></li>
+				<li class="ucash"><a href="#">유캐시 <span class="cash">20,000</span>원</a></li>
+				<li><a href="#">내원서보관함</a></li>
+				<li><a href="#">고객센터</a></li>
+				<li><a href="#">파워경쟁률</a></li>
+				<li><a href="#">English</a></li>
+			</ul> -->
+		</div>
+	</div> <!-- // top_menu -->
+	<div class="inner header_inner">
+		<div class="header_left">
+			<a href="#"target="_blank" class="univ_logo"><img src="common/main_img/mobile/univ_logo.png" alt="대학별 로고"></a>
+			<h2 class="top_tit">건설대학원 전반기 신입생 모집(2차) 전반기 신입생 모집 전반기 신입생 모집</h2>
+			<a href="#" class="user_m"></a>
+		</div>
+		<div class="header_right">
+			<ul class="gnb">
+				<li class="on"><a href="01.html"><span>유의사항</span></a></li>
+				<li><a href="03.html"><span>원서작성</span></a></li>
+				<li><a href="05_1.html"><span>전형료결제</span></a></li>
+				<li><a href="06_1.html"><span>접수완료확인</span></a></li>
+			</ul>	
+		</div>
+	</div> <!-- // inner -->
+</div> <!-- // header -->
+
+<div class="m_pop_mypage">
+	<div class="inner">	 
+		<button class="btn_close"></button>
+		<div class="top_area">
+			<a href="#" class="home">유웨이어플라이 홈</a>
+			<button class="btn_lang">Language</button>
+		</div>
+		<!-- <div class="user_info_box">
+			<div class="ucash_area">
+				<span class="logo">유캐시</span>
+				<a href="#" class="ucash"><span class="num">20,000</span>원</a>
+			</div>
+			<ul class="user_btn login">
+				<li class="btn"><a href="#"><span class="user txt">박하늘별님구리우리<span class="s1">님</span></span></a></li>
+				<li class="btn"><a href="#"><span class="logout txt">로그아웃</span></a></li>			
+			</ul> -->
+		<!-- // user_info_box 로그인시-->
+
+		<div class="user_info_box">
+			<ul class="user_btn logout">
+				<li class="btn"><a href="#"><span class="login txt">로그인</span></a></li>
+				<li class="btn"><a href="#"><span class="join txt">회원가입</span></a></li>
+			</ul>			
+		</div> 
+		<!-- // user_info_box 로그아웃시-->
+
+		<div class="mypage_menu">
+			<ul>
+				<li class="m1"><a href="#"><p class="txt">내원서 보관함</p></a></li>
+				<li class="m2"><a href="#"><p class="txt">고객센터</p></a></li>
+				<li class="m3"><a href="#"><p class="txt">파워경쟁률</p></a></li>
+			</ul>
+		</div>
+	</div>
+</div> <!-- // m_pop_mypage -->
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var winWidth = $(document).outerWidth();
+
+		if (winWidth <= 1024){
+			$('.open_box').each(function(){
+				if (!$(this).hasClass('none')) {
+					$(this).find('.tit_form').click(function(){
+						if(!$(this).parent().hasClass('on')){
+							$(this).parent().addClass('on');
+						}else{
+							$(this).parent().removeClass('on');
+						}
+					});
+				}else {
+				}	 					
+			});
+		}
+
+
+		
+	});
+</script>
+
+<div id="container" class="container">
+	<div class="contents">
+		<div class="inner">
+			<div class="apply_form_wrap form_view">
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">지원 사항 타입</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 대학원 구분 기본 모양 라디오</p>
+							<div class="confirm_box">
+								<p class="text">ABC대학원</p>
+							</div>
+						</div> <!-- // con_form -->
+
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 기본 모양 체크박스</p>
+							<div class="confirm_box">
+								<p class="text">정원내 라벨 1</p>
+							</div>
+						</div> <!-- // con_form -->
+						
+						<div class="con_form">
+							<p class="tit">title 결혼 이주민 여부</p>
+							<div class="confirm_box">
+								<p class="text checked_txt">해당함</p>
+							</div>
+							<p class="bullet_txt">일반귀화자는 글로벌인재특별전형II(전교육과정해외이수자) 지원자격을 인정하지 않습니다.<br/>귀화허가를 받은 결혼 이주민의 경우 관련 증빙서류를 제출해 주십시오.</p>
+						</div> <!-- // con_form -->
+
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->
+
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">대학교 관련 사항</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 학사학위정보</p>	
+							<div class="confirm_box">
+								<p class="text">2020.01.01 - 2024.01.01</p>
+							</div>
+						</div> <!-- // con_form -->
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 부분</p>	
+							<div class="confirm_box">
+								<p class="text">서울대학교</p>
+							</div>
+						</div> <!-- // con_form -->
+						<div class="con_form">
+							<p class="tit">title 석사학위</p>	
+							<p class="sub_tit">subtitle 대학교</p>
+							<div class="confirm_box">
+								<p class="text">서울대학교</p>
+							</div>
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->
+
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">지원자 인적 사항</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 지원자성명</p>	
+							<div class="confirm_box">
+								<p class="text">유웨이</p>
+							</div>
+							<p class="after"><span class="info_txt">이름을 잘못 입력했거나 개명으로 이름이 달라진 경우 주민등록초본의 이름과 동일하게 입력하여야 합니다. (주민등록초본 별도 제출)</span></p>
+						</div> <!-- // con_form -->
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 지원자성명(한자)</p>	
+							<div class="confirm_box wrap_name2">
+								<p class="text">劉웨이</p>
+								<p class="after type02"><span class="info_txt">before 한자가 없는 경우는 성만 한자로 입력하세요.(예 : 洪길동)</span></p>
+							</div>
+						</div> <!-- // con_form -->
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 성명(영문)</p>	
+							<div class="wrap_name3">
+								<div class="half">
+									<p class="sub_tit">subtitle 성</p>
+									<div class="confirm_box">
+										<p class="text">you</p>
+									</div>
+								</div>
+								<div class="half">
+									<p class="sub_tit">subtitle 이름</p>
+									<div class="confirm_box">
+										<p class="text">way</p>
+									</div>
+								</div>
+							</div>
+						</div> <!-- // con_form -->
+						<div class="con_form">
+							<p class="tit">title 주민등록번호</p>	
+							<div class="confirm_box">
+								<p class="text">20000825 - ●●●●●●● </p>
+							</div>
+							<p class="sub_tit type02">성별</p>	
+							<div class="confirm_box">
+								<p class="text">남자</p>
+							</div>
+							<p class="after"><span class="info_txt">지원자의 주민등록번호가 정확한지 다시 한 번 확인하시기 바랍니다.</span></p>
+						</div> <!-- // con_form -->
+						<div class="con_form">
+							<p class="tit">title 국적</p>	
+							<div class="confirm_box">
+								<p class="text">과테말라</p>
+							</div>
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box -->
+
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">지원자 연락처</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 지원자 전화번호</p>	
+							<div class="confirm_box">
+								<p class="text">0200001234</p>
+							</div>
+						</div> <!-- // con_form -->
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 지원자 주소</p>	
+							<div class="confirm_box">
+								<p class="text">[06654] 서울특별시 서초구 효령로55길 23 동산빌딩 6층</p>
+							</div>
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->
+
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">대학교 관련 사항</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">
+							<div class="info_box">
+							<p><span class="bullet">※</span> 출신대학 및 학과, 전공명의 경우 증명서와 동일하게 기재하시기 바랍니다.</p>			
+						</div>
+						</div> <!-- // con_form -->
+						
+						<div class="con_form">
+							<p class="tit type02">
+								<span class="star">*</span>title 학사학위정보
+								<span class="info_tit">before 코멘트 영역</span>
+							</p>	
+							<p class="before"><span class="bullet_txt2">before코멘트 영역 이름, 주민등록번호(외국인 전형 등의 경우 : 외국인등록번호 또는 여권번호), 주소, 전화번호, 휴대전화번호, 이메일, 추가 연락처, 학교정보(최종학력구분, 재학/출신 대학교 (대학원)명, 졸업(예정)연도)</span></p>
+							<p class="sub_tit type02">재학기간</p>
+							<div class="confirm_box">
+								<p class="text">20000101 ~ 20040101</p>
+							</div>
+							<p class="sub_tit type02">대학교</p>
+							<div class="confirm_box">
+								<p class="text">서울대학교</p>
+							</div>
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->
+
+
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">사진 업로드</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>사진 파일 업로드 유의사항</p>	
+							<div class="wrap_upload_photo">
+								<div class="photo_box">
+									<div class="photo_area">
+										<img src="common/main_img/mobile/photo.png" class="photo" alt="사진 3x4" />
+									</div>
+									<div class="text_area">
+										<p>원서접수 전 3개월 이내에 촬영된 탈모 상반신 사진으로 어깨까지 나온 반명함판 사진이어야 합니다. <br />	(배경사진, 옆모습, 선글라스 착용 등의 사진은 사용할 수 없습니다.)</p>
+										<p>사진 파일은 jpg 또는 gif 규격 이어야 합니다. (예 : 사진.jpg)</p>
+										<p>사진은 스캔한 JPG형식의 파일을 사용해야 하며, 배경이 있는 사진, 스냅사진, 파일이 너무 작아서 식별이 곤란한 사진은 사용할 수 없습니다.</p>
+									</div>
+								</div>
+							</div>
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->
+
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">계좌정보</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 계좌정보</p>	
+							<p class="before"><span class="bullet_txt2">before코멘트 영역</span></p>
+							<p class="sub_tit type02">subtitle 계좌번호</p>
+							<div class="confirm_box">
+								<p class="text">104-2442-22333</p>
+							</div>
+							<p class="sub_tit type02">subtitle 은행명</p>
+							<div class="confirm_box">
+								<p class="text">국민은행</p>
+							</div>
+							<p class="sub_tit type02">subtitle 예금주</p>
+							<div class="confirm_box">
+								<p class="text">홍길동</p>
+							</div>						
+							<p class="after"><span class="bullet_txt">after 영역문구</span></p>
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->
+
+
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">경력사항</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">						
+							<div class="wrap_experience">	
+								<div class="experience_box">
+									<p class="tit"><span class="star">*</span>title 경력 사항 1(세로형)</p>	
+									<p class="sub_tit type02">subtitle 시작기간</p>
+									<div class="confirm_box">
+										<p class="text">2024-</p>
+									</div>
+									<p class="sub_tit type02">subtitle 종료기간</p>
+									<div class="confirm_box">
+										<p class="text">2024-</p>
+									</div>
+								</div>
+
+								<div class="experience_box">
+									<p class="tit"><span class="star">*</span>title 경력 사항 2(세로형)</p>	
+									<p class="sub_tit type02">subtitle 시작기간</p>
+									<div class="confirm_box">
+										<p class="text">2024-</p>
+									</div>
+									<p class="sub_tit type02">subtitle 종료기간</p>
+									<div class="confirm_box">
+										<p class="text">2024-</p>
+									</div>
+								</div>
+							</div>					
+
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->
+
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">경력사항</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">						
+							<div class="wrap_experience">	
+								<p class="tit"><span class="star">*</span>title 경력 사항 (가로형)</p>	
+								<div class="experience_box">
+									<div class="row">
+										<div class="box">
+											<label for="" class="tit_label">subtitle 시작기간</label>
+											<div class="confirm_box">
+												<p class="text">2024-</p>
+											</div>	
+										</div>
+										<div class="box">
+											<label for="" class="tit_label">subtitle 종료기간</label>
+											<div class="confirm_box">
+												<p class="text">2024-</p>
+											</div>
+										</div>
+										<div class="box">
+											<label for="" class="tit_label">subtitle 기관명</label>
+											<div class="confirm_box">
+												<p class="text">2024-</p>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="box w2">
+											<label for="" class="tit_label">subtitle 주소</label>
+											<div class="confirm_box">
+												<p class="text">서울특별시 서초구 효령로 55길 23 동산빌딩 </p>
+											</div>
+										</div>
+										<div class="box">
+											<label for="" class="tit_label">subtitle 비고</label>
+											<div class="confirm_box">
+												<p class="text">2024-</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="experience_box">
+									<div class="row">
+										<div class="box">
+											<label for="" class="tit_label">subtitle 시작기간</label>
+											<div class="confirm_box">
+												<p class="text">2024-</p>
+											</div>	
+										</div>
+										<div class="box">
+											<label for="" class="tit_label">subtitle 종료기간</label>
+											<div class="confirm_box">
+												<p class="text">2024-</p>
+											</div>
+										</div>
+										<div class="box">
+											<label for="" class="tit_label">subtitle 기관명</label>
+											<div class="confirm_box">
+												<p class="text">2024-</p>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="box w2">
+											<label for="" class="tit_label">subtitle 주소</label>
+											<div class="confirm_box">
+												<p class="text">서울특별시 서초구 효령로 55길 23 동산빌딩 </p>
+											</div>
+										</div>
+										<div class="box">
+											<label for="" class="tit_label">subtitle 비고</label>
+											<div class="confirm_box">
+												<p class="text">2024-</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>					
+
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->
+
+			
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">파일업로드</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 00전형 파일 업로드</p>						
+							<div class="wrap_fileupload">
+								<p class="sub_tit"><span class="star">*</span>subtitle 자기소개서</p>
+								<p class="before"><span class="info_txt">before 항목 코멘트</span></p>
+								<div class="confirm_box">
+									<div class="wrap_filechk">
+										<p class="text">자기소개서 자기소개서.hwp</p>
+									</div>
+								</div>
+							</div>
+							
+							<div class="wrap_fileupload">
+								<p class="sub_tit"><span class="star">*</span>subtitle 학업계획서</p>
+								<p class="before"><span class="info_txt">before 항목 코멘트</span></p>
+								<div class="confirm_box">
+									<div class="wrap_filechk2">
+										<p class="text">학업계획서.pdf (<span >0.29Mbyte</span>)</p>
+										<button class="btn btn_check"><span>파일 확인</span></button>
+									</div>
+								</div>
+							</div>
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->			
+
+				<div class="form_box open_box on">
+					<div class="tit_form">
+						<p class="t1">자기소개서</p>
+					</div>
+					<div class="con_box">
+						<div class="con_form">
+							<p class="tit"><span class="star">*</span>title 자기소개서</p>
+							<div class="wrap_self_itd">							
+								<div class="confirm_box">
+									<p class="txt">입력Byte수 : <span class="word_num">0</span> / 줄바꿈, 띄어쓰기 포함 300Byte 이내</p>
+									<p class="text">자기소개서 자기소개서</p>
+								</div>
+							</div>
+						</div> <!-- // con_form -->
+					</div> <!-- // con_box -->
+				</div> <!-- // form_box-->
+				
+				<p class="bt_txt"><span class="txt_pink">유웨이대학교</span> 이동 버튼 상단 문구 영역</p>	
+
+				<div class="btn_area_bt">
+					<a href="#" class="btn full"><span>이동버튼 바로가기</span></a>
+				</div>
+
+			</div> <!-- // apply_form_wrap form_view -->
+		</div> <!-- // inner -->
+	</div> <!-- // contents -->          
+</div> <!-- // container -->
+
+
+<div class="footer">
+	<div class="inner">
+		<ul class="footer_menu">
+			<li><a href="#">회사소개</a></li>
+			<li><a href="#">개인정보처리방침</a></li>
+			<li><a href="#">이용자약관</a></li>
+		</ul>
+		<p class="copy">Copyright&copy; <span class="txt_pink">(주)유웨이어플라이</span> <span class="br"></span>All Rights Reserved.</p>
+	</div>
+</div>	
+<!-- // footer -->
+
+</body>
+</html>
