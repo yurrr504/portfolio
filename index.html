@@ -3,8 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>YURRR — Every pixel, for every person.</title>
-  <meta name="description" content="디자인을 이해하고, 디테일을 구현하며, 더 나은 웹의 완성도를 고민하는 웹 퍼블리셔 YURRR의 포트폴리오">
+  <title>YURRR | 웹 퍼블리셔 포트폴리오 — Every pixel, for every person.</title>
+
+  <!-- SEO: 검색 결과에 보이는 설명과 대표 주소 -->
+  <meta name="description" content="웹 표준과 웹 접근성을 바탕으로 반응형 웹을 구현하는 웹 퍼블리셔 YURRR의 포트폴리오입니다. 대학 입학처 홈페이지 구축·리뉴얼, 원서접수 서비스, 웹 접근성 인증 작업 경험을 소개합니다.">
+  <meta name="keywords" content="웹 퍼블리셔, 웹퍼블리셔 포트폴리오, 웹 접근성, 웹 표준, 반응형 웹, 크로스브라우징, HTML, CSS, JavaScript, GSAP">
+  <meta name="author" content="YURRR">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yurrr504.github.io/portfolio/">
+  <meta name="theme-color" content="#F8F7F4">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- 공유 미리보기 (카카오톡·슬랙·SNS) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="YURRR Portfolio">
+  <meta property="og:title" content="YURRR | 웹 퍼블리셔 포트폴리오">
+  <meta property="og:description" content="Every pixel, for every person. 웹 표준·웹 접근성·반응형 퍼블리싱">
+  <meta property="og:url" content="https://yurrr504.github.io/portfolio/">
+  <meta property="og:image" content="https://yurrr504.github.io/portfolio/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Every pixel, for every person. — YURRR 웹 퍼블리셔 포트폴리오">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- 구조화 데이터: 검색엔진·AI 검색이 '누구의 어떤 사이트인지' 이해하도록 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "url": "https://yurrr504.github.io/portfolio/",
+    "name": "YURRR | 웹 퍼블리셔 포트폴리오",
+    "inLanguage": "ko",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "YURRR",
+      "jobTitle": "웹 퍼블리셔",
+      "email": "mailto:yurrr504@gmail.com",
+      "url": "https://yurrr504.github.io/portfolio/",
+      "sameAs": ["https://github.com/yurrr504"],
+      "knowsAbout": ["HTML5", "CSS3", "JavaScript", "jQuery", "GSAP", "반응형 웹", "웹 접근성", "웹 표준", "크로스브라우징", "Figma", "SVN"]
+    }
+  }
+  </script>
 
   <!-- Font: Pretendard -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -67,8 +108,8 @@
   <main id="main">
     <!-- ===================== HOME ===================== -->
     <section class="hero" id="home" aria-labelledby="hero-title">
-      <!-- 배경: 격자 점 물결 애니메이션 (장식) -->
-      <canvas class="hero__bg" aria-hidden="true"></canvas>
+      <!-- 배경: 격자 점 패턴 (장식, CSS) -->
+      <div class="hero__bg" aria-hidden="true"></div>
 
       <div class="hero__inner container">
         <div class="hero__top hero__fade">
@@ -469,7 +510,7 @@
                   </h3>
                   <p class="project-card__desc">반응형 원서접수 서비스 구축 퍼블리싱</p>
                   <ul class="tech-list" aria-label="사용 기술"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Responsive</li></ul>
-                  <span class="project-card__view label" aria-hidden="true">Visit Demo Page<span class="project-card__arrow">↗</span></span>
+                  <span class="project-card__view label" aria-hidden="true">Visit Demo Page <span class="project-card__arrow">↗</span></span>
                 </article>
               </li>
               <li class="project__item">
@@ -510,6 +551,7 @@
               <li class="skill-item"><span class="skill-item__name" lang="en">CSS3</span><span class="skill-item__note">디자인 시안 기반 레이아웃 구현</span></li>
               <li class="skill-item"><span class="skill-item__name" lang="en">Responsive Web</span><span class="skill-item__note">대학 입학처 홈페이지·웹 서비스 반응형 구축</span></li>
               <li class="skill-item"><span class="skill-item__name" lang="en">Web Standards</span><span class="skill-item__note">다수 대학 홈페이지 구축 및 유지보수</span></li>
+              <li class="skill-item"><span class="skill-item__name" lang="en">SEO</span><span class="skill-item__note">시맨틱 마크업, 메타·오픈그래프·구조화 데이터 적용</span></li>
             </ul>
           </div>
 
@@ -524,7 +566,8 @@
             <h3 class="block-label label">Script</h3>
             <ul class="skill-list">
               <li class="skill-item"><span class="skill-item__name" lang="en">JavaScript</span><span class="skill-item__note">화면 인터랙션 구현</span></li>
-              <li class="skill-item"><span class="skill-item__name" lang="en">jQuery</span><span class="skill-item__note">실무 프로젝트 인터랙션 구현</span></li>
+              <li class="skill-item"><span class="skill-item__name" lang="en">jQuery</span><span class="skill-item__note">실무 인터랙션 구현, 이 포트폴리오 스크립트</span></li>
+              <li class="skill-item"><span class="skill-item__name" lang="en">GSAP</span><span class="skill-item__note">ScrollTrigger 고정 가로 스크롤 (이 포트폴리오)</span></li>
             </ul>
           </div>
 
@@ -571,6 +614,10 @@
     </div>
   </footer>
 
+  <!-- jQuery 3.7.1 / GSAP 3.12.5 (ScrollTrigger) — 로컬 파일 -->
+  <script src="js/vendor/jquery.min.js"></script>
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
