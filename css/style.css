@@ -14,7 +14,6 @@
 
   /* 배경 점 애니메이션 색 (JS에서 읽음) */
   --dot-rgb: 32, 32, 32;
-  --dot-hot-rgb: 53, 89, 224;
 
   /* Font family */
   --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
@@ -254,8 +253,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   line-height: 1;
   letter-spacing: -0.02em;
   white-space: nowrap;
-  transform-origin: 0 0;
-  transition: transform .85s cubic-bezier(.7, 0, .2, 1);
 }
 .intro__ch {
   display: inline-block;
@@ -267,7 +264,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .intro__drop {
   display: inline-flex;
   overflow: hidden;
-  transition: width .6s cubic-bezier(.7, 0, .2, 1), margin .6s cubic-bezier(.7, 0, .2, 1), opacity .35s var(--ease);
+  max-width: 1.6em; /* 합쳐질 때 0으로 줄어듦 */
+  transition: max-width .6s cubic-bezier(.7, 0, .2, 1), margin .6s cubic-bezier(.7, 0, .2, 1), opacity .35s var(--ease);
 }
 .intro__plus { margin: 0 .22em; }
 .intro__plus .intro__ch { font-weight: 300; color: var(--color-text-sub); }
@@ -287,14 +285,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .intro.is-in .intro__caption { opacity: 1; }
 
 /* 합치기: RI, + 접힘 / RRR 색 정리 / 설명 숨김 */
-.intro.is-merge .intro__drop { opacity: 0; }
+.intro.is-merge .intro__drop { max-width: 0; margin: 0; opacity: 0; }
 .intro.is-merge .intro__ch { transition-delay: 0s; }
 .intro.is-merge .intro__r { color: var(--color-text); }
 .intro.is-merge .intro__caption { opacity: 0; transition-delay: 0s; transition-duration: .3s; }
 
-/* 로고 자리로 이동 */
-.intro.is-fly .intro__bg { opacity: 0; }
-.intro.is-done { opacity: 0; transition: opacity .2s linear; pointer-events: none; }
+/* 사라지면서 상단 로고 표시 */
+.intro.is-done { opacity: 0; transition: opacity .4s var(--ease); pointer-events: none; }
 
 .is-intro body { overflow: hidden; }
 .is-intro .header__logo { visibility: hidden; }
@@ -439,6 +436,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
+  /* 격자 점 패턴 (CSS만 사용) */
+  background-image: radial-gradient(circle, rgba(var(--dot-rgb), .2) 1.3px, transparent 1.8px);
+  background-size: 32px 32px;
+  animation: dot-drift 24s linear infinite;
   /* 아래쪽과 가장자리로 갈수록 흐려지게 */
   -webkit-mask-image: radial-gradient(90% 80% at 50% 40%, #000 30%, transparent 78%);
   mask-image: radial-gradient(90% 80% at 50% 40%, #000 30%, transparent 78%);
@@ -586,10 +587,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   color: #B5B5B5;
   user-select: none;
 }
-.tok-tag { color: var(--color-text); font-weight: 600; }
-.tok-attr { color: var(--color-text-sub); }
-.tok-str { color: var(--color-code-str); }
-.tok-com { color: #8A8A8A; font-style: italic; }
 
 .hero__stage[data-view="code"] .hero__design { visibility: hidden; }
 
@@ -804,7 +801,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* =========================================================
    7. PROJECT — 가로 스크롤
    기본: 카드 영역 가로 스크롤 (태블릿·모바일·움직임 줄이기·JS 없음)
-   .is-pinned: 섹션 고정 + 세로 스크롤에 맞춰 카드 가로 이동 (데스크톱, JS)
+   .is-pinned: GSAP ScrollTrigger로 섹션 고정 + 세로 스크롤에 맞춰 카드 가로 이동 (데스크톱)
    ========================================================= */
 .project {
   --card-w: clamp(300px, 27vw, 400px);
@@ -886,9 +883,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* 고정 모드 */
 .project.is-pinned { padding-block: 0; }
-.project.is-pinned .project__stage {
-  position: sticky;
-  top: 0;
+.project.is-pinned .project__stage {   /* GSAP ScrollTrigger가 pin 처리 */
   height: 100vh;
   height: 100svh;
   padding-top: var(--header-h);
@@ -1410,4 +1405,12 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 @media (prefers-reduced-motion: reduce) {
   .js .hero__title-line > span { background-size: 100% .7em; }
+}
+
+/* HOME 배경 점: 천천히 대각선으로 흐름 */
+@keyframes dot-drift {
+  to { background-position: 32px 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__bg { animation: none; }
 }
