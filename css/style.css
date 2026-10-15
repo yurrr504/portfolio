@@ -1055,6 +1055,10 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* =========================================================
    8. SKILLS
    ========================================================= */
+.skills__intro {
+  margin-bottom: var(--space-8);
+  color: var(--color-text-sub);
+}
 .skill-group + .skill-group { margin-top: var(--space-8); }
 .skill-list { border-top: 1px solid var(--color-border); }
 .skill-item {
@@ -1070,31 +1074,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   letter-spacing: -0.01em;
 }
 .skill-item__note { color: var(--color-text-sub); }
-.skill-item__badge {
-  display: inline-block;
-  margin-left: var(--space-2);
-  padding: 2px 6px;
-  border: 1px solid var(--color-accent);
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1.4;
-  letter-spacing: 0.06em;
-  color: var(--color-accent);
-  vertical-align: 2px;
-}
-.skill-item--key .skill-item__note { color: var(--color-text); }
-
-.tool-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3) var(--space-6);
-  padding-block: var(--space-5);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-  font-size: 1.125rem;
-  font-weight: 500;
-}
-
 /* =========================================================
    9. FOOTER
    ========================================================= */
@@ -1135,6 +1114,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 @media (hover: hover) {
   .footer__contact a:hover { color: var(--color-accent); }
+}
+.footer__made {
+  margin-top: var(--space-8);
+  font-size: var(--fs-small);
+  color: var(--color-text-sub);
 }
 .footer__bottom {
   display: flex;
@@ -1290,7 +1274,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 .btn--primary:focus-visible { border-color: rgba(53, 89, 224, .35); background: rgba(53, 89, 224, .1); color: var(--color-text); }
 
-.stat--key .stat__num { color: var(--color-accent); }
 
 /* 키워드 띠 */
 .marquee {
