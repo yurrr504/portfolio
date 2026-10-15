@@ -1,259 +1,324 @@
-/* =========================================================
-   YURRR Portfolio — main.js (jQuery)
-   1. 인트로
-   2. 헤더 (스크롤 배경 / 어두운 영역 표시)
-   3. 모바일 메뉴
-   4. 현재 섹션 메뉴 활성화
-   5. 스크롤 등장 효과
-   6. PROJECT 가로 스크롤 (GSAP ScrollTrigger)
-   7. 숫자 카운트
-   8. Design ⇄ Code 전환
-   ========================================================= */
-$(function () {
-  var $win = $(window);
-  var $html = $('html');
-  var $body = $('body');
-  var $header = $('#header');
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches; // 움직임 줄이기 설정
+var introTimer = [];
+var projectST = null; // PROJECT 가로 스크롤 (gsap scrollTrigger)
 
-  /* 1. 인트로: YURI + RRR → YURRR → 사라지면서 로고 표시 */
-  var $intro = $('.intro');
-  var introTimers = [];
+//intro
+function introStart() {
+	if ($('.intro').length == 0 || $('html').hasClass('no-intro')) {
+		$('.intro').remove();
+		heroStart();
+		return;
+	}
 
-  function startHero() {
-    $body.addClass('is-loaded');
-    countStats();
-  }
+	$('html').addClass('is-intro');
+	introTimer.push(setTimeout(function () {
+		$('.intro').addClass('is-in'); // YURI + RRR 등장
+	}, 100));
+	introTimer.push(setTimeout(function () {
+		$('.intro').addClass('is-merge'); // YURRR 로 합쳐짐
+	}, 1600));
+	introTimer.push(setTimeout(introEnd, 2700));
 
-  function finishIntro() {
-    $.each(introTimers, function (i, t) { clearTimeout(t); });
-    $html.removeClass('is-intro');
-    $intro.addClass('is-done');
-    setTimeout(function () { $intro.remove(); }, 400);
-    try { sessionStorage.setItem('yurrr-intro-seen', '1'); } catch (e) {}
-    $(document).off('keydown.intro');
-    startHero();
-  }
+	// 클릭하거나 키보드 누르면 건너뛰기
+	$('.intro').click(introEnd);
+	$(document).on('keydown.intro', introEnd);
+}
 
-  if ($intro.length && !$html.hasClass('no-intro')) {
-    $html.addClass('is-intro');
-    introTimers.push(setTimeout(function () { $intro.addClass('is-in'); }, 100));     // 글자 등장
-    introTimers.push(setTimeout(function () { $intro.addClass('is-merge'); }, 1600)); // YURRR로 합쳐짐
-    introTimers.push(setTimeout(finishIntro, 2700));                                  // 사라짐
-    $intro.on('click', finishIntro);                  // 클릭하면 건너뛰기
-    $(document).on('keydown.intro', finishIntro);     // 아무 키나 누르면 건너뛰기
-  } else {
-    $intro.remove();
-    startHero();
-  }
+function introEnd() {
+	for (var i = 0; i < introTimer.length; i++) {
+		clearTimeout(introTimer[i]);
+	}
+	$('html').removeClass('is-intro');
+	$('.intro').addClass('is-done');
+	setTimeout(function () {
+		$('.intro').remove();
+	}, 400);
+	$(document).off('keydown.intro');
 
-  /* 2. 헤더: 스크롤하면 배경 / 어두운 영역(PROJECT, FOOTER) 위에서는 어둡게 */
-  var $darkAreas = $('.is-dark');
+	try {
+		sessionStorage.setItem('yurrr-intro-seen', '1'); // 같은 탭에서는 한 번만
+	} catch (e) {}
 
-  function updateHeader() {
-    var scrollTop = $win.scrollTop();
-    var headerMid = scrollTop + $header.outerHeight() / 2;
-    var onDark = false;
+	heroStart();
+}
 
-    $darkAreas.each(function () {
-      var top = $(this).offset().top;
-      var bottom = top + $(this).outerHeight();
-      if (headerMid >= top && headerMid <= bottom) onDark = true;
-    });
+//hero
+function heroStart() {
+	$('body').addClass('is-loaded');
+	countNum();
+}
 
-    $header.toggleClass('is-scrolled', scrollTop > 8);
-    $header.toggleClass('is-on-dark', onDark);
-  }
+//숫자 카운트
+function countNum() {
+	if (reduceMotion) return;
 
-  /* 3. 모바일 메뉴 */
-  var $toggle = $('.gnb__toggle');
-  var $navLinks = $('.gnb__link');
+	$('.stat__num').each(function (i) {
+		var el = $(this);
+		var txt = el.text().trim(); // ex) 17+
+		var finalNum = parseInt(txt, 10); // 17
+		var unit = txt.replace(finalNum, ''); // +
 
-  function setNav(open) {
-    $body.toggleClass('is-nav-open', open);
-    $toggle.attr('aria-expanded', open);
-    $toggle.find('.sr-only').text(open ? '메뉴 닫기' : '메뉴 열기');
-  }
+		if (isNaN(finalNum)) return;
 
-  $toggle.on('click', function () {
-    setNav(!$body.hasClass('is-nav-open'));
-  });
+		el.text('0' + unit);
+		$({ num: 0 }).delay(500 + i * 80).animate({ num: finalNum }, {
+			duration: 1200,
+			step: function (now) {
+				el.text(Math.round(now) + unit);
+			},
+			complete: function () {
+				el.text(txt);
+			}
+		});
+	});
+}
 
-  $navLinks.on('click', function () {
-    setNav(false);
-  });
+//header
+function headerFixed() {
+	var scrollTop = $(window).scrollTop();
+	var headerMid = scrollTop + $('.header').outerHeight() / 2;
+	var onDark = false;
 
-  // Esc 키로 메뉴 닫기
-  $(document).on('keydown', function (e) {
-    if (e.key === 'Escape' && $body.hasClass('is-nav-open')) {
-      setNav(false);
-      $toggle.trigger('focus');
-    }
-  });
+	if (scrollTop > 8) {
+		$('.header').addClass('is-scrolled');
+	} else {
+		$('.header').removeClass('is-scrolled');
+	}
 
-  // 화면이 넓어지면 모바일 메뉴 닫기
-  $win.on('resize', function () {
-    if ($win.width() > 767) setNav(false);
-  });
+	// 어두운 영역(PROJECT, FOOTER) 위에서는 헤더도 어둡게
+	$('.is-dark').each(function () {
+		var top = $(this).offset().top;
+		var bottom = top + $(this).outerHeight();
+		if (headerMid >= top && headerMid <= bottom) {
+			onDark = true;
+		}
+	});
 
-  /* 4. 현재 섹션 메뉴 활성화: 화면 가운데에 있는 섹션의 메뉴에 aria-current */
-  function updateNav() {
-    var line = $win.scrollTop() + $win.height() / 2;
+	if (onDark) {
+		$('.header').addClass('is-on-dark');
+	} else {
+		$('.header').removeClass('is-on-dark');
+	}
+}
 
-    $navLinks.each(function () {
-      var $section = $($(this).attr('href'));
-      if (!$section.length) return;
+//mobile menu
+function menuOpen() {
+	$('body').addClass('is-nav-open');
+	$('.gnb__toggle').attr('aria-expanded', 'true');
+	$('.gnb__toggle .sr-only').text('메뉴 닫기');
+}
 
-      var top = $section.offset().top;
-      var bottom = top + $section.outerHeight();
+function menuClose() {
+	$('body').removeClass('is-nav-open');
+	$('.gnb__toggle').attr('aria-expanded', 'false');
+	$('.gnb__toggle .sr-only').text('메뉴 열기');
+}
 
-      if (line >= top && line < bottom) {
-        $navLinks.removeAttr('aria-current');
-        $(this).attr('aria-current', 'true');
-      }
-    });
-  }
+function mobileMenu() {
+	$('.gnb__toggle').click(function () {
+		if (!$('body').hasClass('is-nav-open')) {
+			menuOpen();
+		} else {
+			menuClose();
+		}
+	});
 
-  /* 5. 스크롤 등장 효과: 화면 아래 90% 지점에 들어오면 표시 */
-  var $reveals = $('.reveal');
+	$('.gnb__link').click(function () {
+		menuClose();
+	});
 
-  function updateReveal() {
-    var line = $win.scrollTop() + $win.height() * 0.9;
+	// esc 키로 닫기
+	$(document).on('keydown', function (e) {
+		if (e.key == 'Escape' && $('body').hasClass('is-nav-open')) {
+			menuClose();
+			$('.gnb__toggle').focus();
+		}
+	});
 
-    $reveals.not('.is-visible').each(function () {
-      if ($(this).offset().top < line) $(this).addClass('is-visible');
-    });
-  }
+	// pc 화면이 되면 닫기
+	$(window).on('resize', function () {
+		if ($(window).width() > 767) {
+			menuClose();
+		}
+	});
+}
 
-  if (reduceMotion) $reveals.addClass('is-visible');
+//gnb on (화면 가운데에 있는 섹션 메뉴 표시)
+function gnbOn() {
+	var line = $(window).scrollTop() + $(window).height() / 2;
 
-  // 스크롤할 때마다 2·4·5 갱신
-  function onScroll() {
-    updateHeader();
-    updateNav();
-    if (!reduceMotion) updateReveal();
-  }
-  $win.on('scroll resize', onScroll);
-  onScroll();
+	$('.gnb__link').each(function () {
+		var section = $($(this).attr('href'));
+		if (section.length == 0) return;
 
-  /* 6. PROJECT 가로 스크롤
-     - PC(1024px 이상): GSAP ScrollTrigger로 섹션을 고정(pin)하고, 세로 스크롤만큼 카드를 가로로 이동(scrub)
-     - 태블릿·모바일: 카드 영역을 손가락으로 가로 스크롤 */
-  var $project = $('#project');
-  var $viewport = $project.find('[data-project-viewport]');
-  var $track = $project.find('[data-project-track]');
-  var $items = $track.find('.project__item');
-  var total = $items.length;
-  var projectST = null;
+		var top = section.offset().top;
+		var bottom = top + section.outerHeight();
 
-  function pad(n) { return n < 10 ? '0' + n : String(n); }
+		if (line >= top && line < bottom) {
+			$('.gnb__link').removeAttr('aria-current');
+			$(this).attr('aria-current', 'true');
+		}
+	});
+}
 
-  // 카드 번호와 전체 개수 표시
-  $project.find('[data-project-total]').text(pad(total));
-  $items.each(function (i) {
-    $(this).find('.project-card__num').text(pad(i + 1));
-  });
+//scroll fade (화면 아래 90% 지점에 들어오면 보이기)
+function scrollFade() {
+	if (reduceMotion) {
+		$('.reveal').addClass('is-visible');
+		return;
+	}
 
-  // 진행 표시 (p: 0 ~ 1)
-  function renderProgress(p) {
-    $project.find('[data-project-bar]').css('transform', 'scaleX(' + p + ')');
-    $project.find('[data-project-current]').text(pad(Math.round(p * (total - 1)) + 1));
-  }
+	var line = $(window).scrollTop() + $(window).height() * 0.9;
 
-  // 카드 트랙이 가로로 이동해야 하는 거리
-  function getDistance() {
-    return Math.max(0, $track[0].scrollWidth - $viewport.width());
-  }
+	$('.reveal').each(function () {
+		if (!$(this).hasClass('is-visible') && $(this).offset().top < line) {
+			$(this).addClass('is-visible');
+		}
+	});
+}
 
-  // 태블릿·모바일: 가로 스크롤 위치로 진행 표시
-  $viewport.on('scroll', function () {
-    if (projectST) return;
-    var max = this.scrollWidth - this.clientWidth;
-    renderProgress(max > 0 ? this.scrollLeft / max : 0);
-  });
+//project 번호
+function projectNum() {
+	var item = $('.project__item');
+	var totalNum = item.length;
 
-  if (window.gsap && window.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
+	if (totalNum < 10) {
+		totalNum = '0' + totalNum;
+	}
+	$('[data-project-total]').text(totalNum);
 
-    // 조건에 맞는 화면에서만 실행, 벗어나면 return 함수로 자동 정리
-    gsap.matchMedia().add('(min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)', function () {
-      $project.addClass('is-pinned');
+	item.each(function (i) {
+		var num = i + 1;
+		if (num < 10) {
+			num = '0' + num;
+		}
+		$(this).find('.project-card__num').text(num);
+	});
+}
 
-      var tween = gsap.to($track[0], {
-        x: function () { return -getDistance(); },  // 왼쪽으로 이동
-        ease: 'none',
-        scrollTrigger: {
-          trigger: $project.find('.project__stage')[0],
-          start: 'top top',                                       // 섹션 위쪽이 화면 위쪽에 닿으면 시작
-          end: function () { return '+=' + getDistance(); },      // 이동 거리만큼 스크롤하면 끝
-          pin: true,                                              // 그동안 섹션 고정
-          scrub: 0.6,                                             // 스크롤에 맞춰 부드럽게 따라옴
-          invalidateOnRefresh: true,                              // 화면 크기가 바뀌면 다시 계산
-          onUpdate: function (self) { renderProgress(self.progress); }
-        }
-      });
-      projectST = tween.scrollTrigger;
+//project 진행 표시 (per : 0 ~ 1)
+function projectPager(per) {
+	var total = $('.project__item').length;
+	var nowNum = Math.round(per * (total - 1)) + 1;
 
-      return function () {
-        projectST = null;
-        $project.removeClass('is-pinned');
-        renderProgress(0);
-      };
-    });
+	if (nowNum < 10) {
+		nowNum = '0' + nowNum;
+	}
+	$('[data-project-current]').text(nowNum);
+	$('[data-project-bar]').css('transform', 'scaleX(' + per + ')');
+}
 
-    // 폰트·이미지를 다 불러온 뒤 위치 다시 계산
-    $win.on('load', function () { ScrollTrigger.refresh(); });
-  }
+//project 카드가 가로로 이동할 거리
+function projectWidth() {
+	var trackW = $('[data-project-track]')[0].scrollWidth;
+	var viewW = $('[data-project-viewport]').width();
+	return Math.max(0, trackW - viewW);
+}
 
-  // 키보드(Tab)로 화면 밖 카드에 포커스가 가면 그 카드가 보이는 위치로 이동
-  $items.on('focusin', function () {
-    if (!projectST) return;
-    var x = Math.min(this.offsetLeft, getDistance());
-    $viewport.scrollLeft(0);
-    window.scrollTo({ top: projectST.start + x, behavior: 'instant' });
-  });
+//project 가로 스크롤
+function projectSlide() {
+	// 태블릿·모바일 : 카드 영역을 손가락으로 가로 스크롤
+	$('[data-project-viewport]').on('scroll', function () {
+		if (projectST) return;
+		var max = this.scrollWidth - this.clientWidth;
+		if (max > 0) {
+			projectPager(this.scrollLeft / max);
+		} else {
+			projectPager(0);
+		}
+	});
 
-  /* 7. HOME 숫자 카운트: jQuery animate로 0부터 실제 값까지 */
-  function countStats() {
-    if (reduceMotion) return;
+	// 키보드(tab)로 화면 밖 카드에 가면 그 카드가 보이는 위치로 이동
+	$('.project__item').on('focusin', function () {
+		if (!projectST) return;
+		var x = Math.min(this.offsetLeft, projectWidth());
+		$('[data-project-viewport]').scrollLeft(0);
+		window.scrollTo({ top: projectST.start + x, behavior: 'instant' });
+	});
 
-    $('.stat__num').each(function (i) {
-      var $num = $(this);
-      var text = $num.text().trim();       // 예: "17+"
-      var end = parseInt(text, 10);         // 17
-      var suffix = text.replace(end, '');   // "+"
-      if (isNaN(end)) return;
+	if (!window.gsap || !window.ScrollTrigger) return;
+	gsap.registerPlugin(ScrollTrigger);
 
-      $num.text('0' + suffix);
-      $({ value: 0 }).delay(500 + i * 80).animate({ value: end }, {
-        duration: 1200,
-        easing: 'swing',
-        step: function (now) { $num.text(Math.round(now) + suffix); },
-        complete: function () { $num.text(text); }
-      });
-    });
-  }
+	// pc : 1024px 이상 + 높이 700px 이상일 때만 실행 (조건 벗어나면 return 함수로 정리)
+	gsap.matchMedia().add('(min-width: 1024px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)', function () {
+		$('#project').addClass('is-pinned');
 
-  /* 8. HOME Design ⇄ Code 전환 */
-  var $stage = $('.hero__stage');
-  var $viewBtns = $('[data-view-btn]');
-  var $codePanel = $('[data-view-panel="code"]');
-  var $codeTarget = $('[data-code-target]');
+		var slide = gsap.to('[data-project-track]', {
+			x: function () {
+				return -projectWidth(); // 왼쪽으로 이동
+			},
+			ease: 'none',
+			scrollTrigger: {
+				trigger: '.project__stage',
+				start: 'top top', // 섹션 위쪽이 화면 위쪽에 닿으면 시작
+				end: function () {
+					return '+=' + projectWidth(); // 이동 거리만큼 스크롤하면 끝
+				},
+				pin: true, // 그동안 섹션 고정
+				scrub: 0.6, // 스크롤에 맞춰 따라옴
+				invalidateOnRefresh: true, // 리사이즈 시 다시 계산
+				onUpdate: function (self) {
+					projectPager(self.progress);
+				}
+			}
+		});
+		projectST = slide.scrollTrigger;
 
-  // 코드 원본을 줄 단위로 나눠 출력 (줄 번호는 CSS counter)
-  var lines = $.trim($('#hero-code-source').html()).split('\n');
-  $.each(lines, function (i, line) {
-    $('<span class="code-line">').text(line || ' ').appendTo($codeTarget);
-  });
+		return function () {
+			projectST = null;
+			$('#project').removeClass('is-pinned');
+			projectPager(0);
+		};
+	});
 
-  $viewBtns.on('click', function () {
-    var view = $(this).data('view-btn');
-    $stage.attr('data-view', view);
-    $codePanel.prop('hidden', view !== 'code');
-    $viewBtns.attr('aria-pressed', 'false');
-    $(this).attr('aria-pressed', 'true');
-  });
+	// 이미지·폰트 다 불러온 뒤 위치 다시 계산
+	$(window).on('load', function () {
+		ScrollTrigger.refresh();
+	});
+}
 
-  /* 미정 링크(href="#") 클릭 시 맨 위로 튀지 않게 */
-  $('a[href="#"]').on('click', function (e) { e.preventDefault(); });
+//hero design / code 보기
+function viewChange() {
+	// 코드 원본을 한 줄씩 넣기 (줄 번호는 css counter)
+	var codeLine = $.trim($('#hero-code-source').html()).split('\n');
+	for (var i = 0; i < codeLine.length; i++) {
+		$('<span class="code-line">').text(codeLine[i] || ' ').appendTo('[data-code-target]');
+	}
+
+	$('[data-view-btn]').click(function () {
+		var view = $(this).data('view-btn');
+
+		$('.hero__stage').attr('data-view', view);
+		$('[data-view-btn]').attr('aria-pressed', 'false');
+		$(this).attr('aria-pressed', 'true');
+
+		if (view == 'code') {
+			$('[data-view-panel="code"]').prop('hidden', false);
+		} else {
+			$('[data-view-panel="code"]').prop('hidden', true);
+		}
+	});
+}
+
+$(document).ready(function () {
+	introStart();
+	mobileMenu();
+	projectNum();
+	projectSlide();
+	viewChange();
+
+	headerFixed();
+	gnbOn();
+	scrollFade();
+
+	$(window).on('scroll resize', function () {
+		headerFixed();
+		gnbOn();
+		scrollFade();
+	});
+
+	// 링크 없는 a 태그 클릭 시 맨 위로 안 튀게
+	$('a[href="#"]').click(function (e) {
+		e.preventDefault();
+	});
 });
