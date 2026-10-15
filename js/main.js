@@ -45,6 +45,7 @@ function introEnd() {
 //hero
 function heroStart() {
 	$('body').addClass('is-loaded');
+	textWave();
 	countNum();
 }
 
@@ -70,6 +71,59 @@ function countNum() {
 				el.text(txt);
 			}
 		});
+	});
+}
+
+//hero 글자 물결 (마우스 닿은 글자가 위로 올라갔다 내려옴)
+function textWave() {
+	var title = $('.hero__display');
+	if (title.length == 0 || reduceMotion) return;
+
+	// 스크린리더는 원래 문장 한 줄로 읽도록
+	title.prepend('<span class="sr-only">' + $.trim(title.text().replace(/\s+/g, ' ')) + '</span>');
+	title.find('.hero__line').attr('aria-hidden', 'true');
+
+	// 글자를 하나씩 span 으로 나누기 (단어 단위로 묶어서 줄바꿈 방지)
+	function splitText(el) {
+		$(el).contents().each(function () {
+			if (this.nodeType == 3) {
+				var words = this.nodeValue.split(/(\s+)/);
+				var html = '';
+				for (var i = 0; i < words.length; i++) {
+					if (words[i] == '') continue;
+					if ($.trim(words[i]) == '') {
+						html += ' ';
+					} else {
+						html += '<span class="word">';
+						for (var j = 0; j < words[i].length; j++) {
+							html += '<span class="char">' + words[i].charAt(j) + '</span>';
+						}
+						html += '</span>';
+					}
+				}
+				$(this).replaceWith(html);
+			} else if (this.nodeType == 1) {
+				splitText(this);
+			}
+		});
+	}
+	title.find('.hero__line-inner').each(function () {
+		splitText(this);
+	});
+
+	// 등장 모션이 끝난 뒤부터 동작
+	setTimeout(function () {
+		title.addClass('is-wave');
+	}, 1300);
+
+	title.on('mouseenter', '.char', function () {
+		var char = $(this);
+		if (!title.hasClass('is-wave') || char.hasClass('is-up')) return;
+		char.addClass('is-up');
+	});
+
+	title.on('animationend', '.char', function () {
+		$(this).removeClass('is-up');
 	});
 }
 
@@ -272,32 +326,71 @@ function projectSlide() {
 	});
 
 	// 이미지·폰트 다 불러온 뒤 위치 다시 계산
-	$(window).on('load', function () {
+	if (document.readyState == 'complete') {
 		ScrollTrigger.refresh();
+	} else {
+		$(window).on('load', function () {
+			ScrollTrigger.refresh();
+		});
+	}
+}
+
+//메뉴·버튼 클릭 시 해당 섹션으로 부드럽게 이동
+function scrollMove() {
+	$('a[href^="#"]').not('[href="#"]').click(function (e) {
+		var target = $($(this).attr('href'));
+		if (target.length == 0) return;
+		e.preventDefault();
+
+		var top = target.offset().top - $('.header').outerHeight();
+		if (target.hasClass('is-pinned')) {
+			top = target.offset().top; // 고정되는 PROJECT 는 헤더 여백이 안에 있어서 섹션 맨 위로
+		}
+		if (top < 0) top = 0;
+
+		$('html, body').stop().animate({ scrollTop: top }, reduceMotion ? 0 : 700, function () {
+			// 키보드 사용자를 위해 이동한 곳으로 포커스도 옮기기
+			if (!target.is('a, button, input, [tabindex]')) {
+				target.attr('tabindex', '-1');
+			}
+			target[0].focus({ preventScroll: true });
+		});
+
+		history.pushState(null, '', $(this).attr('href'));
 	});
 }
 
-//hero design / code 보기
-function viewChange() {
-	// 코드 원본을 한 줄씩 넣기 (줄 번호는 css counter)
-	var codeLine = $.trim($('#hero-code-source').html()).split('\n');
-	for (var i = 0; i < codeLine.length; i++) {
-		$('<span class="code-line">').text(codeLine[i] || ' ').appendTo('[data-code-target]');
+//새로고침 시 보던 위치로 돌아가기
+//브라우저 기본 복원은 GSAP 고정 영역이 생기기 전에 실행돼서 위치가 어긋남 → 직접 저장·복원
+function scrollRestore() {
+	if (!('scrollRestoration' in history)) return;
+	history.scrollRestoration = 'manual';
+
+	$(window).on('beforeunload', function () {
+		try {
+			sessionStorage.setItem('yurrr-scroll', $(window).scrollTop());
+		} catch (e) {}
+	});
+
+	function restore() {
+		var nav = performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+		var saved = null;
+		try {
+			saved = sessionStorage.getItem('yurrr-scroll');
+		} catch (e) {}
+
+		if (nav && nav.type == 'reload' && saved !== null) {
+			if (window.ScrollTrigger) ScrollTrigger.refresh();
+			window.scrollTo(0, parseInt(saved, 10));
+		}
 	}
 
-	$('[data-view-btn]').click(function () {
-		var view = $(this).data('view-btn');
-
-		$('.hero__stage').attr('data-view', view);
-		$('[data-view-btn]').attr('aria-pressed', 'false');
-		$(this).attr('aria-pressed', 'true');
-
-		if (view == 'code') {
-			$('[data-view-panel="code"]').prop('hidden', false);
-		} else {
-			$('[data-view-panel="code"]').prop('hidden', true);
-		}
-	});
+	// 이미 다 불러온 상태면 바로, 아니면 load 후 실행
+	if (document.readyState == 'complete') {
+		restore();
+	} else {
+		$(window).on('load', restore);
+	}
 }
 
 $(document).ready(function () {
@@ -305,7 +398,8 @@ $(document).ready(function () {
 	mobileMenu();
 	projectNum();
 	projectSlide();
-	viewChange();
+	scrollMove();
+	scrollRestore();
 
 	headerFixed();
 	gnbOn();
