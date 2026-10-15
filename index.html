@@ -6,12 +6,12 @@
   <title>YURRR | 웹 퍼블리셔 포트폴리오 — Every pixel, for every person.</title>
 
   <!-- SEO: 검색 결과에 보이는 설명과 대표 주소 -->
-  <meta name="description" content="대학 입학처 홈페이지를 구축하고 운영해 온 웹 퍼블리셔 YURRR의 포트폴리오입니다. 신규 구축·리뉴얼·유지보수, 반응형·적응형 웹, 크로스브라우징 작업을 소개합니다.">
-  <meta name="keywords" content="웹 퍼블리셔, 웹퍼블리셔 포트폴리오, 반응형 웹, 적응형 웹, 크로스브라우징, 웹사이트 구축, 유지보수, HTML, CSS, jQuery">
+  <meta name="description" content="대학 입학처 홈페이지를 구축하고 운영해 온 웹 퍼블리셔 YURRR의 포트폴리오입니다. 홈페이지·CMS 구축과 유지보수, 반응형·적응형 웹, 크로스브라우징 작업을 소개합니다.">
+  <meta name="keywords" content="웹 퍼블리셔, 웹퍼블리셔 포트폴리오, 반응형 웹, 적응형 웹, 크로스브라우징, 웹사이트 구축, CMS, 유지보수, HTML, CSS, jQuery">
   <meta name="author" content="YURRR">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://yurrr504.github.io/portfolio/">
-  <meta name="theme-color" content="#F8F7F4">
+  <meta name="theme-color" content="#FFFFFF">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 
   <!-- 공유 미리보기 (카카오톡·슬랙·SNS) -->
@@ -108,22 +108,23 @@
   <main id="main">
     <!-- ===================== HOME ===================== -->
     <section class="hero" id="home" aria-labelledby="hero-title">
-      <!-- 배경: 격자 점 패턴 (장식, CSS) -->
-      <div class="hero__bg" aria-hidden="true"></div>
+      <!-- 배경: 기하학 도형 (장식, CSS 애니메이션) -->
+      <div class="hero__bg" aria-hidden="true">
+        <!-- 큰 원 선 + 그 둘레를 도는 작은 원 -->
+        <span class="shape shape--arc-l"><span class="shape shape--hatch"></span></span>
+        <span class="shape shape--arc-r"><span class="shape shape--stripe"></span></span>
+        <span class="shape shape--dots"></span>
+        <span class="shape shape--lime"></span>
+        <span class="shape shape--ring"></span>
+      </div>
 
       <div class="hero__inner container">
         <div class="hero__top hero__fade">
           <p class="hero__label label">(01) Web Publisher — Portfolio</p>
-
-          <!-- Design ⇄ Code 전환: 이 화면을 만든 HTML을 보여줌 -->
-          <div class="view-switch" role="group" aria-label="첫 화면 보기 방식">
-            <button class="view-switch__btn" type="button" data-view-btn="design" aria-pressed="true">Design</button>
-            <button class="view-switch__btn" type="button" data-view-btn="code" aria-pressed="false">Code</button>
-          </div>
         </div>
 
-        <div class="hero__stage" data-view="design">
-          <div class="hero__design" data-view-panel="design">
+        <div class="hero__stage">
+          <div class="hero__design">
             <p class="hero__display" lang="en">
               <span class="hero__line"><span class="hero__line-inner">Every pixel,</span></span>
               <span class="hero__line"><span class="hero__line-inner">for <span class="hl">every person</span><span class="accent">.</span></span></span>
@@ -140,14 +141,6 @@
                 <a class="btn btn--primary hero__cta" href="#project">View Projects <span class="btn__arrow" aria-hidden="true">→</span></a>
               </div>
             </div>
-          </div>
-
-          <div class="hero__code code-view" data-view-panel="code" hidden>
-            <div class="code-view__bar">
-              <span class="code-view__file">index.html</span>
-              <span class="code-view__note">#home — 이 화면의 실제 마크업 (일부 생략)</span>
-            </div>
-            <pre class="code-view__pre" tabindex="0" aria-label="첫 화면 HTML 코드"><code data-code-target></code></pre>
           </div>
         </div>
 
@@ -181,23 +174,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Code 보기에 표시되는 원본. 위 마크업을 바꾸면 함께 맞춰 주세요 -->
-      <script type="text/plain" id="hero-code-source"><section class="hero" id="home" aria-labelledby="hero-title">
-  <p class="hero__display" lang="en">
-    Every pixel,
-    for <span class="hl">every person</span><span class="accent">.</span>
-  </p>
-
-  <h1 class="hero__title" id="hero-title">
-    <span class="hero__title-line">디자인을 이해하고,</span>
-    <span class="hero__title-line">디테일을 구현하며,</span>
-    <span class="hero__title-line">더 나은 웹의 완성도를 고민합니다.</span>
-  </h1>
-
-  <p class="hero__desc">대학 입학처 홈페이지를 구축하고 운영하며, ...</p>
-  <a class="btn btn--primary hero__cta" href="#project">View Projects</a>
-</section></script>
     </section>
 
     <!-- 키워드 띠: 장식 (내용은 본문에 모두 있음). 같은 묶음을 두 번 넣어 끊김 없이 반복 -->
@@ -220,7 +196,7 @@
         <div class="split__body">
           <p class="about__lead reveal">
             디자인 시안을 정확하게 구현하는 웹 퍼블리셔입니다.
-            3년 6개월 동안 대학 입학처 홈페이지와 입학 관련 웹 서비스의 구축, 리뉴얼, 유지보수를 맡아 왔습니다.
+            3년 6개월 동안 대학 입학처 홈페이지와 관리자(CMS) 페이지, 입학 관련 웹 서비스의 구축, 리뉴얼, 유지보수를 맡아 왔습니다.
           </p>
 
           <div class="about__block reveal">
@@ -229,7 +205,7 @@
               <li class="key-card">
                 <span class="key-card__tag" lang="en">Build &amp; Maintain</span>
                 <h4 class="key-card__title">구축부터 운영까지</h4>
-                <p class="key-card__desc">입학처 홈페이지를 새로 만들고, 리뉴얼하고, 매년 바뀌는 모집 일정에 맞춰 운영했습니다. 기존 코드를 깨뜨리지 않고 고치는 유지보수가 가장 많이 해 온 일입니다.</p>
+                <p class="key-card__desc">입학처 홈페이지와 관리자(CMS) 페이지를 새로 만들고, 리뉴얼하고, 매년 바뀌는 모집 일정에 맞춰 운영했습니다. 기존 코드를 깨뜨리지 않고 고치는 유지보수가 가장 많이 해 온 일입니다.</p>
                 <p class="key-card__meta">신규 구축 3 · 리뉴얼 4 · 유지보수 17+</p>
               </li>
               <li class="key-card">
@@ -284,6 +260,7 @@
                   <p class="work-item__desc">웹 페이지 퍼블리싱과 메인 페이지 및 서브 페이지 개선 작업을 수행했습니다.</p>
                   <dl class="work-item__tags">
                     <div><dt>신규 구축</dt><dd>가톨릭대학교, 서울시립대학교, 부경대학교</dd></div>
+                    <div><dt>CMS 구축</dt><dd>가톨릭대학교 관리자 페이지</dd></div>
                     <div><dt>메인 리뉴얼</dt><dd>강남대학교, 국민대학교, 고려대학교</dd></div>
                     <div><dt>메인·서브 상단 리뉴얼</dt><dd>전북대학교</dd></div>
                   </dl>
@@ -299,8 +276,8 @@
               <li class="work-item">
                 <span class="work-item__num label">03</span>
                 <div>
-                  <h4 class="work-item__title">웹사이트 유지보수</h4>
-                  <p class="work-item__desc">다수의 대학 입학처 홈페이지와 관련 웹 서비스의 기존 페이지 개선 및 운영에 필요한 퍼블리싱 업무를 담당했습니다.</p>
+                  <h4 class="work-item__title">웹사이트·CMS 유지보수</h4>
+                  <p class="work-item__desc">다수의 대학 입학처 홈페이지와 관리자(CMS) 페이지, 관련 웹 서비스의 기존 페이지 개선 및 운영에 필요한 퍼블리싱 업무를 담당했습니다. 매년 열리는 전문대학 수시입학정보 박람회 사이트도 유지보수하며 메인 페이지를 수정했습니다.</p>
                 </div>
               </li>
               <li class="work-item">
@@ -316,7 +293,7 @@
           <div class="about__block reveal">
             <h3 class="block-label label">Maintained</h3>
             <ul class="client-list">
-              <li>유웨이어플라이</li><li>유마켓</li><li>가톨릭대학교</li><li>고려대학교</li><li>강남대학교</li><li>국민대학교</li><li>전북대학교</li><li>협성대학교</li><li>경기대학교</li><li>계명대학교</li><li>남서울대학교</li><li>백석대학교</li><li>한국공학대학교</li><li>상명대학교</li><li>서울과학기술대학교</li><li>원광대학교</li><li>한성대학교</li><li>호서대학교</li><li>중원대학교 외</li>
+              <li>유웨이어플라이</li><li>유마켓</li><li>전문대학 수시입학정보 박람회</li><li>가톨릭대학교</li><li>고려대학교</li><li>강남대학교</li><li>국민대학교</li><li>전북대학교</li><li>협성대학교</li><li>경기대학교</li><li>계명대학교</li><li>남서울대학교</li><li>백석대학교</li><li>한국공학대학교</li><li>상명대학교</li><li>서울과학기술대학교</li><li>원광대학교</li><li>한성대학교</li><li>호서대학교</li><li>중원대학교 외</li>
             </ul>
           </div>
         </div>
@@ -330,7 +307,6 @@
 
       [수정 안내]
       - 카드 1개 = <li class="project__item"> 1개. 개수를 바꾸면 번호와 진행 표시가 자동으로 맞춰짐
-      - --project-tint: 카드 이미지 영역 배경 톤
       - 이미지: images/ 폴더의 WebP (가로 1200px). 교체 시 src, alt, height 수정
       - 링크가 있는 카드: 제목 <a>에 주소 입력 / 링크가 없는 카드: project-card--static (제목만 표시)
     -->
@@ -351,7 +327,7 @@
           <div class="project__viewport" data-project-viewport>
             <ul class="project__track" data-project-track>
               <li class="project__item">
-                <article class="project-card" style="--project-tint: #E4E8F0;">
+                <article class="project-card">
                   <div class="project-card__meta">
                     <span class="project-card__num">01</span>
                     <span class="project-card__type label">신규 구축</span>
@@ -365,13 +341,13 @@
                     </div>
                   </div>
                   <h3 class="project-card__title"><a class="project-card__link" href="https://ipsi.catholic.ac.kr/" target="_blank" rel="noopener noreferrer">가톨릭대학교 입학처 홈페이지<span class="sr-only"> (새 창으로 열림)</span></a></h3>
-                  <p class="project-card__desc">반응형 입학처 홈페이지 신규 구축 퍼블리싱</p>
-                  <ul class="tech-list" aria-label="사용 기술"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>jQuery</li><li>Responsive</li></ul>
+                  <p class="project-card__desc">반응형 입학처 홈페이지와 관리자(CMS) 페이지 신규 구축 퍼블리싱</p>
+                  <ul class="tech-list" aria-label="사용 기술"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>jQuery</li><li>Responsive</li><li>CMS</li></ul>
                   <span class="project-card__view label" aria-hidden="true">Visit Site <span class="project-card__arrow">↗</span></span>
                 </article>
               </li>
               <li class="project__item">
-                <article class="project-card" style="--project-tint: #E8ECE4;">
+                <article class="project-card">
                   <div class="project-card__meta">
                     <span class="project-card__num">02</span>
                     <span class="project-card__type label">신규 구축</span>
@@ -391,7 +367,7 @@
                 </article>
               </li>
               <li class="project__item">
-                <article class="project-card" style="--project-tint: #E2EAF0;">
+                <article class="project-card">
                   <div class="project-card__meta">
                     <span class="project-card__num">03</span>
                     <span class="project-card__type label">신규 구축</span>
@@ -411,7 +387,7 @@
                 </article>
               </li>
               <li class="project__item">
-                <article class="project-card" style="--project-tint: #F0E5E5;">
+                <article class="project-card">
                   <div class="project-card__meta">
                     <span class="project-card__num">04</span>
                     <span class="project-card__type label">리뉴얼</span>
@@ -432,7 +408,7 @@
                 </article>
               </li>
               <li class="project__item">
-                <article class="project-card" style="--project-tint: #E8E6EE;">
+                <article class="project-card">
                   <div class="project-card__meta">
                     <span class="project-card__num">05</span>
                     <span class="project-card__type label">리뉴얼</span>
@@ -452,7 +428,7 @@
                 </article>
               </li>
               <li class="project__item">
-                <article class="project-card" style="--project-tint: #F3E6EA;">
+                <article class="project-card">
                   <div class="project-card__meta">
                     <span class="project-card__num">06</span>
                     <span class="project-card__type label">리뉴얼 · 적응형</span>
@@ -472,7 +448,7 @@
                 </article>
               </li>
               <li class="project__item">
-                <article class="project-card" style="--project-tint: #EAE7F1;">
+                <article class="project-card">
                   <div class="project-card__meta">
                     <span class="project-card__num">07</span>
                     <span class="project-card__type label">솔루션 구축</span>
@@ -492,7 +468,7 @@
                 </article>
               </li>
               <li class="project__item">
-                <article class="project-card" style="--project-tint: #E3ECE8;">
+                <article class="project-card">
                   <div class="project-card__meta">
                     <span class="project-card__num">08</span>
                     <span class="project-card__type label">서비스 구축</span>
@@ -514,7 +490,7 @@
                 </article>
               </li>
               <li class="project__item">
-                <article class="project-card project-card--static" style="--project-tint: #F1ECE2;">
+                <article class="project-card project-card--static">
                   <div class="project-card__meta">
                     <span class="project-card__num">09</span>
                     <span class="project-card__type label">이벤트 페이지</span>
@@ -560,6 +536,7 @@
             <h3 class="block-label label">Practical — 실무에서 써 본 기술</h3>
             <ul class="skill-list">
               <li class="skill-item"><span class="skill-item__name" lang="en">jQuery</span><span class="skill-item__note">메뉴·탭·팝업·입력 폼 등 화면 인터랙션, 이 포트폴리오 스크립트</span></li>
+              <li class="skill-item"><span class="skill-item__name" lang="en">CMS</span><span class="skill-item__note">관리자 페이지 퍼블리싱 (가톨릭대 구축, 입학처 운영 중 유지보수)</span></li>
               <li class="skill-item"><span class="skill-item__name" lang="en">SVN</span><span class="skill-item__note">실무 프로젝트 소스 버전 관리</span></li>
               <li class="skill-item"><span class="skill-item__name" lang="en">Figma · Photoshop · Illustrator</span><span class="skill-item__note">시안 확인과 이미지 추출</span></li>
               <li class="skill-item"><span class="skill-item__name" lang="en">Web Accessibility</span><span class="skill-item__note">매년 인증 기준에 맞춘 마크업 수정 (강남대·고려대)</span></li>
